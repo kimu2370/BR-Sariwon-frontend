@@ -1,0 +1,247 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.Login {
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //   flex-direction: column;
+  .content {
+    .header-content {
+      width: 100%;
+      padding: 133px 0 35px;
+      text-align: center;
+      color: #483834;
+
+      span {
+        text-align: center;
+      }
+
+      p {
+        padding-top: 10px;
+        font-size: 20px;
+      }
+    }
+    .inner-content {
+      width: 916px;
+      margin: 0 auto;
+      display: block;
+
+      .login-container {
+        padding: 46px 0 47px;
+        border-top: 2px solid #ff99bf;
+        border-bottom: solid #dadada;
+        display: flex;
+        justify-content: center;
+
+        .left-login {
+          width: 458px;
+          border-right: 1px solid #e1e3e5;
+
+          .left-txt {
+            padding-bottom: 20px;
+            font-size: 17px;
+            p {
+              color: #ff7c98;
+              font-size: 18px;
+              font-weight: 300;
+              padding-top: 5px;
+            }
+          }
+
+          .login-box {
+            width: 458px;
+            height: 107px;
+            margin-bottom: 9px;
+            display: flex;
+            justify-content: space-between;
+
+            .login-input {
+              display: flex;
+              flex-direction: column;
+
+              input {
+                width: 260px;
+                height: 45px;
+                padding: 17px 15px;
+                color: #696663;
+                font-size: 15px;
+                background: #efefef;
+                border: none;
+                margin-bottom: 10px;
+              }
+            }
+
+            .login-btn {
+              width: 118px;
+              height: 118px;
+              border: none;
+              color: white;
+              border-radius: 50%;
+              background: #f56f98;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-right: 30px;
+            }
+          }
+
+          .left-bottom {
+            width: 456px;
+            height: 19px;
+            margin-top: 30px;
+
+            a {
+              padding-right: 31px;
+              text-decoration: none;
+              font-size: 14px;
+              font-weight: 300;
+              color: #2f231c;
+            }
+          }
+        }
+        .right-login {
+          width: 422px;
+          padding-left: 35px;
+          font-size: 13px;
+
+          .service {
+            width: 422px;
+            padding-bottom: 50px;
+
+            h3 {
+              padding-bottom: 10px;
+              font-weight: normal;
+              font-size: 17px;
+            }
+
+            p {
+              font-size: 13px;
+              font-weight: 300;
+              line-height: 1.5;
+            }
+          }
+          .center {
+            width: 422px;
+            h3 {
+              padding-bottom: 10px;
+              font-weight: normal;
+              font-size: 17px;
+            }
+
+            dl {
+              display: flex;
+              margin-bottom: 10px;
+
+              dt {
+                width: 75px;
+                color: #948780;
+              }
+            }
+          }
+        }
+      }
+    }
+    .bottom-container {
+      margin-top: 15px;
+
+      .text {
+        margin-top: 30px;
+        margin-bottom: 20px;
+        padding-bottom: 32px;
+        font-weight: 300;
+        font-size: 16px;
+        color: #948780;
+        text-align: center;
+
+        p {
+          margin-bottom: 8px;
+        }
+      }
+
+      .benefit {
+        display: flex;
+        justify-content: space-between;
+
+        .benefit1 {
+          display: flex;
+          justify-content: center;
+
+          .bene-icon1 {
+            width: 90px;
+            height: 80px;
+            background: url("http://www.baskinrobbins.co.kr/assets/images/sso/ico_benefit_1.png");
+            background-repeat: no-repeat;
+          }
+
+          .bene-txt1 {
+            margin-left: 10px;
+            dt {
+              padding-bottom: 7px;
+              font-size: 17px;
+              margin-bottom: 8px;
+            }
+            dd {
+              color: #948780;
+              font-size: 13px;
+            }
+          }
+        }
+
+        .benefit2 {
+          display: flex;
+          justify-content: center;
+
+          .bene-icon2 {
+            width: 90px;
+            height: 80px;
+            background: url("http://www.baskinrobbins.co.kr/assets/images/sso/ico_benefit_2.png");
+            background-repeat: no-repeat;
+          }
+
+          .bene-txt2 {
+            margin-left: 10px;
+            dt {
+              padding-bottom: 7px;
+              font-size: 17px;
+              margin-bottom: 8px;
+            }
+            dd {
+              color: #948780;
+              font-size: 13px;
+            }
+          }
+        }
+
+        .benefit3 {
+          display: flex;
+          justify-content: center;
+
+          .bene-icon3 {
+            width: 90px;
+            height: 80px;
+            background: url("http://www.baskinrobbins.co.kr/assets/images/sso/ico_benefit_3.png");
+            background-repeat: no-repeat;
+          }
+
+          .bene-txt3 {
+            margin-left: 10px;
+            dt {
+              padding-bottom: 7px;
+              font-size: 17px;
+              margin-bottom: 8px;
+            }
+            dd {
+              color: #948780;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
