@@ -1,0 +1,37 @@
+.btn {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  width: 43px;
+  height: 43px;
+  border-width: 1px;
+  border-color: rgba(87, 33, 10, 0.5);
+  border-style: solid;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  margin-bottom: 7px;
+  font-size: 0px;
+  text-align: left;
+  line-height: 20px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+@for $i from 1 through 4 {
+  .btn#{$i}:hover {
+    cursor: pointer;
+    width: 147px;
+    &::after {
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 9;
+      width: 147px;
+      height: 42px;
+      clear: both;
+      background-image: url(https://www.baskinrobbins.co.kr/assets/images/flavoer/nav_0#{$i}_on.png);
+      content: "";
+    }
+  }
+}

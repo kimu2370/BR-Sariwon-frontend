@@ -1,0 +1,15 @@
+.img-effect {
+  position: absolute;
+  top: 3px;
+  left: 389px;
+  z-index: 1000;
+  .img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    visibility: hidden;
+  }
+  .show {
+    visibility: visible !important;
+  }
+}
