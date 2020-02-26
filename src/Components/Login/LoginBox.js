@@ -1,17 +1,19 @@
 import React, { Component } from "react";
+import { withRouter, Link } from "react-router-dom";
 
 class LoginBox extends Component {
   constructor() {
     super();
     this.state = {
       id: "",
-      pw: ""
+      pw: "",
+      data: []
     };
   }
 
   //---------------------method-------------------------
   handleId = e => {
-    console.log(e.target);
+    // console.log(e.target);
     this.setState({
       id: e.target.value
     });
@@ -21,20 +23,35 @@ class LoginBox extends Component {
     this.setState({
       pw: e.target.value
     });
-    console.log("this.state.pw : ", this.state.pw);
+    // console.log("this.state.pw : ", this.state.pw);
   };
 
   handlebtn = () => {
-    if (!this.state.id) {
-      alert("아이디를 입력하세요");
-    } else if (!this.state.pw) {
-      alert("비밀번호를 입력하세요");
-    }
-    console.log("check");
-    console.log(this.state.pw);
-    console.log(this.state.id);
+    // if (!this.state.id) {
+    //   alert("아이디를 입력하세요");
+    // } else if (!this.state.pw) {
+    //   alert("비밀번호를 입력하세요");
+    // } else {
+    //http://10.58.2.215:8000/account/sign-in
+    fetch("http://10.58.2.215:8000/account/sign-in", {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.id,
+        password: this.state.pw
+      })
+    })
+      .then(response => response.json())
+      .then(res => {
+        if (res.Authorization) {
+          localStorage.setItem("token", res.Authorization);
+        }
+      });
+    // }
   };
 
+  //handleLogin btn에 걸것. handlebtn 함수 안에 넣어도 되나? btn에 함수 2개 걸려고 하니까 오류뜨는디..?
+
+  // -------------------render----------------------
   render() {
     return (
       <div className="left-login">
@@ -75,17 +92,17 @@ class LoginBox extends Component {
           >
             비밀번호재발급
           </a>
-          <a
+          <Link
+            to="http://members.happypointcard.com/member_02/main.html"
             className="sing-up"
-            href="http://members.happypointcard.com/member_02/main.html"
             target="blank"
           >
             회원가입
-          </a>
+          </Link>
         </div>
       </div>
     );
   }
 }
 
-export default LoginBox;
+export default withRouter(LoginBox);
