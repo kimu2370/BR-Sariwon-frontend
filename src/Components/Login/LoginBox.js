@@ -32,7 +32,7 @@ class LoginBox extends Component {
     // } else if (!this.state.pw) {
     //   alert("비밀번호를 입력하세요");
     // } else {
-    //http://10.58.2.215:8000/account/sign-in
+
     fetch("http://10.58.2.215:8000/account/sign-in", {
       method: "POST",
       body: JSON.stringify({
@@ -48,8 +48,6 @@ class LoginBox extends Component {
       });
     // }
   };
-
-  //handleLogin btn에 걸것. handlebtn 함수 안에 넣어도 되나? btn에 함수 2개 걸려고 하니까 오류뜨는디..?
 
   // -------------------render----------------------
   render() {
