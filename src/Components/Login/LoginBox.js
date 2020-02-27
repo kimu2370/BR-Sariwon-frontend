@@ -1,55 +1,57 @@
 import React, { Component } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import "./loginBox.scss";
 
 class LoginBox extends Component {
   constructor() {
     super();
     this.state = {
       id: "",
-      pw: "",
-      data: []
+      pw: ""
     };
   }
 
   //---------------------method-------------------------
   handleId = e => {
-    // console.log(e.target);
     this.setState({
       id: e.target.value
     });
+    // console.log("id target: ", e.target);
+    // console.log("id value: ", e.target.value);
+    // console.log("this.state.id : ", this.state.id);
   };
+
   handlePW = e => {
-    // console.log(e.target.value);
     this.setState({
       pw: e.target.value
     });
-    // console.log("this.state.pw : ", this.state.pw);
   };
 
   handlebtn = () => {
-    // if (!this.state.id) {
-    //   alert("아이디를 입력하세요");
-    // } else if (!this.state.pw) {
-    //   alert("비밀번호를 입력하세요");
-    // } else {
-
-    fetch("http://10.58.2.215:8000/account/sign-in", {
-      method: "POST",
-      body: JSON.stringify({
-        email: this.state.id,
-        password: this.state.pw
+    console.log(this.state.id);
+    console.log(this.state.pw);
+    if (!this.state.id) {
+      alert("아이디를 입력하세요");
+    } else if (!this.state.pw) {
+      alert("비밀번호를 입력하세요");
+    } else {
+      fetch("http://10.58.2.215:8000/account/sign-in", {
+        method: "POST",
+        body: JSON.stringify({
+          email: this.state.id,
+          password: this.state.pw
+        })
       })
-    })
-      .then(response => response.json())
-      .then(res => {
-        if (res.Authorization) {
-          localStorage.setItem("token", res.Authorization);
-        }
-      });
-    // }
+        .then(response => response.json())
+        .then(res => {
+          if (res.Authorization) {
+            localStorage.setItem("token", res.Authorization);
+          }
+        })
+        .then(this.props.history.push("/"));
+    }
   };
 
-  // -------------------render----------------------
   render() {
     return (
       <div className="left-login">
@@ -57,7 +59,6 @@ class LoginBox extends Component {
           <h4>배스킨라빈스 로그인</h4>
           <p>한번의 로그인으로 달콤한 혜택을 만나세요.</p>
         </div>
-        {/* 로그인박스 */}
         <div className="login-box">
           <div className="login-input">
             <input
@@ -90,13 +91,13 @@ class LoginBox extends Component {
           >
             비밀번호재발급
           </a>
-          <Link
-            to="http://members.happypointcard.com/member_02/main.html"
+          <a
             className="sing-up"
+            href="http://members.happypointcard.com/member_02/main.html"
             target="blank"
           >
             회원가입
-          </Link>
+          </a>
         </div>
       </div>
     );
