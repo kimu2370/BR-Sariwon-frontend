@@ -1,0 +1,15 @@
+.nav {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0px auto;
+  .move1 {
+    list-style: none;
+    position: fixed;
+    right: 330px;
+    z-index: 50;
+    top: 200px;
+    text-align: right;
+    transition: all 1s ease 1s;
+  }
+}
