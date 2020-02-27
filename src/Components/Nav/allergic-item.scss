@@ -1,0 +1,28 @@
+.allergic-check {
+    display: flex;
+    height: 25px;
+    width: 80px;
+    .allergic-checkbox-label {
+      input {
+        position: absolute;
+        z-index: -9999;
+      }
+      span {
+        width: 17px;
+        height: 17px;
+        display:block;
+        background: url("http://www.baskinrobbins.co.kr/assets/images/search/bg_check_off.gif");
+      }
+      input:checked + span {
+        width: 17px;
+        height: 17px;
+        
+        background: url("http://www.baskinrobbins.co.kr/assets/images/search/bg_check_on.gif");
+      }
+    }
+    
+    .allergic-name {
+      font-size: 13px;
+      margin-left: 5px;
+    }
+  }

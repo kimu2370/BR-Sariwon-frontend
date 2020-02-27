@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Flavor from "Pages/Flavor/Flavor";
-import Nav from "Components/Nav/Nav";
+import Nav from "Pages/Nav/Nav";
 import Login from "Pages/Login/Login";
 
 class Routes extends React.Component {
