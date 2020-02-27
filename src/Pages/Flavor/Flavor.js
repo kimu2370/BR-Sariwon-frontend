@@ -30,6 +30,18 @@ class Flavor extends Component {
     }
   }
 
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll = e => {
+    let scrollTop = e.target.scrollingElement.scrollTop; // 현재 스크롤되는 요소의 top 값
+  };
+
   changeIceCreamName = inputArg => {
     if (!inputArg) {
       //move-icecream down
