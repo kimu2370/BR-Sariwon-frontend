@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Flavor from "Pages/Flavor/Flavor";
 import Nav from "Pages/Nav/Nav";
 import Login from "Pages/Login/Login";
 
-class Routes extends React.Component {
+class Routes extends Component {
   render() {
     return (
       <Router>
