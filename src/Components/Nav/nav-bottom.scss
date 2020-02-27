@@ -1,0 +1,54 @@
+.menu-area {
+    display: flex;
+    justify-content: space-between;
+    height: 46px;
+    margin: 0 auto;
+    width: 1200px;
+
+    .nav-menu-left{
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        width: 131px;
+    }
+    .nav-menu-right{
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        width: 811px;
+    }
+    div {
+        text-indent: -9999em;
+        height: 46px;
+        font-size: 50px;
+        background: url(http://www.baskinrobbins.co.kr/assets/images/common/gnb_menu.png);
+        cursor: pointer;
+    }
+}
+
+.menu-extend {
+    // height: 276px;
+    overflow: hidden;
+}
+
+.menu-extend-on {
+    transition: height .5s ease;
+    height: 276px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+   
+}
+
+
+.menu-extend-off {
+    transition-property: height;
+    transition-duration: 0.5s;
+    height: 0px;
+    border-bottom: 1px solid black;
+    animation-fill-mode: none;
+}
+
+.event-image {
+    width: 100%;
+    margin: 0 80px;
+}
