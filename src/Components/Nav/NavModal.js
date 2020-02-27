@@ -1,33 +1,9 @@
 import React, { Component } from "react";
-import "Components/Nav/nav-modal.scss";
 import NavModalSelector from "./NavModalSelector";
 import AllergicItem from "./AllergicItem";
-const allergie = [
-  {
-    allergic: "계란"
-  },
-  {
-    allergic: "대두"
-  },
-  {
-    allergic: "돼지고기"
-  },
-  {
-    allergic: "땅콩"
-  },
-  {
-    allergic: "밀"
-  },
-  {
-    allergic: "복숭아"
-  },
-  {
-    allergic: "우유"
-  },
-  {
-    allergic: "없음"
-  }
-];
+import allergie from "./NavModalData";
+import "Components/Nav/nav-modal.scss";
+
 class NavModal extends Component {
   render() {
     console.log("NavModal: isModalClicked: ", this.props.isModalClicked);
@@ -42,10 +18,7 @@ class NavModal extends Component {
         }
       >
         <div className="modal-content-wrapper">
-          <form
-            action="
-          "
-          >
+          <form>
             <div className="modal-content">
               <div className="modal-content-top-wrapper">
                 {/* product name */}

@@ -1,54 +1,160 @@
-.menu-area {
-    display: flex;
-    justify-content: space-between;
-    height: 46px;
-    margin: 0 auto;
-    width: 1200px;
-
-    .nav-menu-left{
-        list-style: none;
+.menu-wrapper{
+    .menu-area {
         display: flex;
         justify-content: space-between;
-        width: 131px;
-    }
-    .nav-menu-right{
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
-        width: 811px;
-    }
-    div {
-        text-indent: -9999em;
         height: 46px;
-        font-size: 50px;
-        background: url(http://www.baskinrobbins.co.kr/assets/images/common/gnb_menu.png);
-        cursor: pointer;
+        margin: 0 auto;
+        width: 1200px;
+    
+        .nav-menu-left{
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            width: 131px;
+
+            .nav-menu-login {
+                width: 35px;
+            }
+            .nav-menu-join {
+                width: 27px;
+                background-position: -97px -1px;
+            }
+        }
+        .nav-menu-right{
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            width: 811px;
+            
+            .right-button-flavor {
+                width: 164px;
+                background-position: -133px -3px;
+                margin-right: 59px;
+            }
+            .right-button-menu {
+                width: 42px;
+                background-position: -415px -3px;
+                margin: 0 59px;
+            }
+            .right-button-event {
+                width: 42px;
+                background-position: -577px -1px;
+                margin: 0 59px;
+            }
+            .right-button-store {
+                width: 42px;
+                background-position: -737px -1px;
+                margin: 0 59px;
+
+            }
+            .right-button-about {
+                width: 49px;
+                background-position: -897px -1px;
+                margin: 0 59px;
+            }
+
+            li {
+                text-align: center;
+                padding-bottom: 12px;
+
+                .category-list {
+                    margin-top: 40px;
+                    list-style: none;
+                    text-align: center;
+                    padding-bottom: 12px;
+                    color: #948780;
+                    opacity: 0;
+                }
+
+                .category-list-on {
+                    animation-name: fadeIn;
+                    animation-duration: 1s;
+                    animation-fill-mode: forwards;
+
+                    @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to   { opacity: 1; }
+                    }
+                }
+
+                .category-list-off {
+                    animation-name: fadeOut;
+                    animation-duration: 0.3s;
+                    display: none;
+                    
+                    @keyframes fadeOut {
+                        0%   { opacity: 1; }
+                        50%  { opacity: 0.5; }
+                        100% { opacity: 0;}
+                    }
+                }
+            }
+            .monthly-icecream {
+                margin-top: 3px;
+                opacity: 0;
+                margin-left: -30;
+            }
+            
+            .monthly-icecream-on {
+                animation-name: fadeInn;
+                animation-duration: 1s;
+                animation-delay: 0.3s;
+                animation-fill-mode: forwards;
+                
+                @keyframes fadeInn {
+                    from { opacity: 0; }
+                    to   { opacity: 1; }
+                }
+            }
+            .monthly-icecream-off {
+                display: none;
+                animation-name: fadeOut;
+                animation-duration: 1s;
+                animation-delay: 0.3s;
+            
+                @keyframes fadeOut {
+                from { opacity: 1; }
+                to   { opacity: 0; }
+                }
+            }
+        }
+        div {
+            text-indent: -9999em;
+            height: 46px;
+            font-size: 50px;
+            background: url(http://www.baskinrobbins.co.kr/assets/images/common/gnb_menu.png);
+            cursor: pointer;
+        }
     }
-}
-
-.menu-extend {
-    // height: 276px;
-    overflow: hidden;
-}
-
-.menu-extend-on {
-    transition: height .5s ease;
-    height: 276px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-   
-}
-
-
-.menu-extend-off {
-    transition-property: height;
-    transition-duration: 0.5s;
-    height: 0px;
-    border-bottom: 1px solid black;
-    animation-fill-mode: none;
-}
-
-.event-image {
-    width: 100%;
-    margin: 0 80px;
+    
+    .menu-extend {
+        // height: 276px;
+        overflow: hidden;
+    }
+    
+    .menu-extend-on {
+        transition: height .5s ease;
+        height: 276px;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+       
+    }
+    
+    
+    .menu-extend-off {
+        transition-property: height;
+        transition-duration: 0.5s;
+        height: 0px;
+        border-bottom: 1px solid black;
+        animation-fill-mode: none;
+    }
+    
+    .event-image-wrapper {
+        width: 100%;
+        margin: 0 80px;
+        
+        .event-image {
+            margin-top: 65px;
+        }
+    }
 }

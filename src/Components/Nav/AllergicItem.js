@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "Components/Nav/allergic-item.scss";
 
 class AllergicItem extends Component {
   render() {
