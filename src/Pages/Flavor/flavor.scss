@@ -46,33 +46,33 @@
 
     .material {
       position: absolute;
-      top: 222px;
+      top: 363px;
       left: 50%;
       transform: translate(-52.8%);
       z-index: 10;
     }
     .side-img01 {
       position: absolute;
-      top: 710px;
+      top: 680px;
       right: -130px;
       margin: 0px;
       animation: move1 2s infinite;
     }
     @keyframes move1 {
       0% {
-        top: 710px;
+        top: 680px;
       }
       25% {
-        top: 715px;
+        top: 685px;
       }
       50% {
-        top: 710px;
+        top: 680px;
       }
       75% {
-        top: 715px;
+        top: 685px;
       }
       100% {
-        top: 710px;
+        top: 680px;
       }
     }
   }
