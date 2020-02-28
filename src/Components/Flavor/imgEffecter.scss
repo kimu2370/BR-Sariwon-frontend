@@ -1,14 +1,16 @@
 //icecream-img 고정으로 none한뒤 active 됐을 때 block한다.
-.effect-icecream {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 429px;
-  height: 582px;
-  z-index: 100;
-  display: none;
+.effect-img {
+  .effect-icecream {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 429px;
+    height: 582px;
+    z-index: 100;
+    display: none;
 
-  &.active {
-    display: block;
+    &.active {
+      display: block;
+    }
   }
 }

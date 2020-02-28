@@ -8,7 +8,7 @@ class Nav extends Component {
   render() {
     return (
       <nav className="flavor-nav">
-        <div className="scroll-top-after">
+        <div className="move-bar">
           {this.state.DATA.map((item, i) => {
             return (
               <Item
