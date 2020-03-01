@@ -19,43 +19,43 @@ class Flavor extends Component {
       reachTop: false
     };
     this.imgSrc = [];
-    for (let i = 0; i < 26; i++) {
+    for (let i = 1; i < 26; i++) {
       if (i < 10) {
         this.imgSrc.push(
-          `https://www.baskinrobbins.co.kr/assets/images/flavoer/fom_02_0000${i}.png`
+          `https://www.baskinrobbins.co.kr/assets/images/flavoer/fom_03_0000${i}.png`
         );
       } else {
         this.imgSrc.push(
-          `https://www.baskinrobbins.co.kr/assets/images/flavoer/fom_02_000${i}.png`
+          `https://www.baskinrobbins.co.kr/assets/images/flavoer/fom_03_000${i}.png`
         );
       }
     }
   }
 
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
-  }
+  // componentDidMount() {
+  //   window.addEventListener("scroll", this.handleScroll);
+  // }
 
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  }
+  // componentWillUnmount() {
+  //   window.removeEventListener("scroll", this.handleScroll);
+  // }
 
-  getCurrentScrollPercentage = () => {
-    return (
-      ((window.scrollY + window.innerHeight) / document.body.clientHeight) * 100
-    );
-  };
+  // getCurrentScrollPercentage = () => {
+  //   return (
+  //     ((window.scrollY + window.innerHeight) / document.body.clientHeight) * 100
+  //   );
+  // };
 
   // handleScroll = e => {
   //   console.log(this.getCurrentScrollPercentage());
   //   let currentScrollPercentage = this.getCurrentScrollPercentage();
-  //   // let scrollTop = e.target.scrollingElement.scrollTop;  현재 스크롤되는 요소의 top 값
+  //   let scrollTop = e.target.scrollingElement.scrollTop;  현재 스크롤되는 요소의 top 값
   //   currentScrollPercentage > 27 &&
   //     currentScrollPercentage < 30 &&
   //     this.state.section[0].current.scrollIntoView();
-  //   // this.setState({
-  //   //   reachTop: !this.state.reachTop
-  //   // });
+  //   this.setState({
+  //     reachTop: !this.state.reachTop
+  //   });
   // };
 
   changeIceCreamName = inputArg => {
@@ -110,8 +110,8 @@ class Flavor extends Component {
                   {this.imgSrc.map((item, i) => {
                     return (
                       <ImgEffecter
-                        key={i}
-                        active={`${i === this.state.count ? "active" : ""}`}
+                        key={i + 1}
+                        active={`${i + 1 === this.state.count ? "active" : ""}`}
                         imgSrc={item}
                         imgClass={this.state.effectIceCream}
                       />
