@@ -1,0 +1,19 @@
+.view_flavor,
+.consist,
+.list_product {
+  height: auto;
+  overflow: auto;
+}
+.view-flavor {
+  height: 260px;
+  margin-bottom: 156px;
+  overflow: hidden;
+  h2 {
+    font-size: 17px;
+    width: 900px;
+    color: #2f231c;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 15px;
+  }
+}
