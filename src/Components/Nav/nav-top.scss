@@ -21,7 +21,8 @@
     .right-buttons {
         @include button-list;
         top: 39px;
-        left: 990px;
+        width: 300px;
+        margin-left:910px;
     
     
         li {

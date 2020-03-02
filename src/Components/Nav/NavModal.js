@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import NavModalSelector from "./NavModalSelector";
+import SelectBox from "Components/Common/SelectBox";
 import AllergicItem from "./AllergicItem";
-import allergie from "./NavModalData";
+import Data from "./NavModalData";
 import "Components/Nav/nav-modal.scss";
 
 class NavModal extends Component {
   render() {
     console.log("NavModal: isModalClicked: ", this.props.isModalClicked);
-    console.log(allergie);
+    console.log(Data.allergie);
     return (
       <div
         className="modal"
@@ -24,7 +24,13 @@ class NavModal extends Component {
                 {/* product name */}
                 <div className="product-name-wrapper">
                   <div className="product-title">제품명</div>
-                  <NavModalSelector />
+                  <SelectBox
+                    defaultText="전체"
+                    list={Data.products}
+                    itemName="product"
+                    widthSize="128"
+                    heightSize="32"
+                  />
                   <input className="product-search-input" type="text" />
                 </div>
                 {/* hashtag */}
@@ -59,7 +65,7 @@ class NavModal extends Component {
               <div className="allergic-wrapper">
                 <div className="allergic-title">알레르기 성분</div>
                 <div className="allergic-check-area">
-                  {allergie.map(item => (
+                  {Data.allergie.map(item => (
                     <AllergicItem allergic={item.allergic} />
                   ))}
                 </div>
