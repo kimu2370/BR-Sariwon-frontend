@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import DATA from "Components/MenuDetail/Data/Product";
 import "Components/MenuDetail/productInfo.scss";
 class ProductInfo extends Component {
   render() {
     return (
       <div className="product-info">
         <div className="date-wrap">
-          <span className="text">출시일</span>
-          <span className="date">{DATA[0].release_date}</span>
+          <span className="text">
+            {this.props.product.release_date !== "" ? "출시일" : ""}
+          </span>
+          <span className="date">{this.props.product.release_date}</span>
         </div>
         <div className="nav">
           <ul className="sns">

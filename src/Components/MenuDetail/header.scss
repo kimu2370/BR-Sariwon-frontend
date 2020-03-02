@@ -27,15 +27,17 @@
       line-height: 20px;
     }
     .photo {
-      background: url(https://www.baskinrobbins.co.kr/assets/images/menu/img_con.png)
-        50% 220px no-repeat;
-      background-size: 110px auto;
       text-align: center;
       border-bottom: 2px solid #ff7c98;
       height: 400px;
       img {
         margin-top: -33px;
       }
+    }
+    .con {
+      background: url(https://www.baskinrobbins.co.kr/assets/images/menu/img_con.png)
+        50% 220px no-repeat;
+      background-size: 110px auto;
     }
     .buy {
       cursor: pointer;

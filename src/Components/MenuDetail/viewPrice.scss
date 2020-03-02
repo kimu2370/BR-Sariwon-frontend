@@ -1,5 +1,10 @@
 .view-price {
-  margin-bottom: 98px;
+  margin: 0 0 98px 0;
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
   section {
     float: left;
     width: 408px;

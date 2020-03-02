@@ -5,8 +5,8 @@ class ViewProduct extends Component {
   render() {
     return (
       <div className="view-menu icecream">
-        <Header />
-        <ProductInfo />
+        <Header product={this.props.product} />
+        <ProductInfo product={this.props.product} />
       </div>
     );
   }

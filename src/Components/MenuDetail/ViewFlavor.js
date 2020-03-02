@@ -5,11 +5,11 @@ class ViewFlavor extends Component {
     return (
       <div className="view-flavor consist">
         <h2>추천 플레이버</h2>
-        <div className="flavor-list">
+        <div className="list-flavor">
           <ul className="list-wrap">
             <li className="list">
               <div className="title"></div>
-              <img src=""></img>
+              <img src="http://www.baskinrobbins.co.kr/upload/product/1654067239.png"></img>
             </li>
           </ul>
           <div className="paging"></div>
