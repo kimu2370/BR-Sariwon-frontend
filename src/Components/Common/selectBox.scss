@@ -1,38 +1,43 @@
+@import "Styles/common";
 
-  .container {
+.select-box-container {
     .select-box {
       display: flex;
-      margin-right: 20px;
       flex-direction: column;
   
       .options-container {
+        z-index: 30;
           background: #ffffff;
           color: #636363;
           max-height: 0;
-          width: 130px;
           opacity: 0;
-          transition: all 0.4s;
-          border-radius: 8px;
-          overflow: hidden;
+          transition: all 0.01s;
+          border-radius: 5px;
+          overflow: auto;
           position: absolute;
           top: 60px;
           border: 1px solid #efefef;
-        
           order: 1;
+
+          .option {
+            padding-left: 8px;
+          }
         }
     }
-    
+    .selected-wrapper {
+
+    }
     .selected {
-      background: #ffffff;
-      border-radius: 8px;
+      z-index: 20;
+      border-radius: 5px;
       margin-bottom: 8px;
-      color: #636363;
       position: relative;
-      height: 10px;
-      width: 130px;
-      border: 1px solid #efefef;
-    
+      color: #948780;
+      border: 1px solid #e0e2e3;
       order: 0;
+      display: flex;
+      align-items: center;
+      padding: 8px;
     }
     
     .selected::after {
@@ -41,7 +46,7 @@
       background-size: contain;
       background-repeat: no-repeat;
     
-      position: absolute;
+      // position: absolute;
       height: 100%;
       width: 32px;
       right: 10px;
@@ -61,21 +66,9 @@
       top: -6px;
     }
     
-  //   .select-box .options-container::-webkit-scrollbar {
-  //     width: 8px;
-  //     background: #636363;
-  //     border-radius: 0 8px 8px 0;
-  //   }
-    
-  //   .select-box .options-container::-webkit-scrollbar-thumb {
-  //     background: #636363;
-  //     border-radius: 0 8px 8px 0;
-  //   }
-    
     .select-box .option,
     .selected {
-        height: 33px;
-      padding: 5px;
+      
       cursor: pointer;
       box-sizing: border-box;
     }
@@ -93,7 +86,7 @@
     }
   
     .option-name {
-        font-size: 13px;
+      font-size: 12px;
     }
   }
   
