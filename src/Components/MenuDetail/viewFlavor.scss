@@ -1,0 +1,47 @@
+.view-flavor,
+.consist,
+.list-flavor {
+  height: auto;
+  overflow: auto;
+}
+.view-flavor {
+  height: 260px;
+  overflow: hidden;
+  h2 {
+    font-size: 17px;
+    width: 900px;
+    color: #2f231c;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 15px;
+  }
+  .list-flavor {
+    margin-bottom: 27px;
+    text-align: center;
+  }
+  .list-wrap {
+    display: inline-block;
+    margin: 0;
+    border: none;
+    .list {
+      float: left;
+      text-align: center;
+      width: 179px;
+      height: 179px;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+      background: url(https://www.baskinrobbins.co.kr/assets/images/menu/img_con.png)
+        50% 120px no-repeat;
+      background-size: 35px auto;
+      border: 1px solid #e3e7e7;
+      img {
+        width: 112px;
+        position: absolute;
+        left: 50%;
+        margin-left: -56px;
+        top: 57px;
+      }
+    }
+  }
+}

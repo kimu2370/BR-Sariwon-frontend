@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Nav from "Components/Flavor/Nav";
 import "Pages/Flavor/flavor.scss";
 import ImgEffecter from "Components/Flavor/ImgEffecter";
-import Layout from "Pages/Layout/Layout";
+// import Layout from "Pages/Layout/Layout";
 class Flavor extends Component {
   constructor() {
     super();
@@ -80,57 +80,57 @@ class Flavor extends Component {
 
   render() {
     return (
-      <Layout>
-        <div className="flavor-container">
-          <div className="move">
-            <Nav
-              // reachTop={
-              //   this.state.reachTop ? "scroll-top-after" : "scroll-top-before"
-              // }
-              section={this.state.section}
-              moveIceCream={this.state.moveIceCream}
-              onChange={this.changeIceCreamName}
-            />
-            <section ref={this.section1} className="section area1">
-              <div className="in-wrap">
-                <span className={this.state.moveIceCream}>
-                  <img src="https://www.baskinrobbins.co.kr/assets/images/flavoer/ice_img.png" />
-                </span>
-                <span className="material">
-                  <img src="https://www.baskinrobbins.co.kr/assets/images/flavoer/ice_material.png" />
-                </span>
-                <span className="side-img01">
-                  <img src="https://www.baskinrobbins.co.kr/assets/images/flavoer/side_img_01.png" />
-                </span>
+      // <Layout>
+      <div className="flavor-container">
+        <div className="move">
+          <Nav
+            // reachTop={
+            //   this.state.reachTop ? "scroll-top-after" : "scroll-top-before"
+            // }
+            section={this.state.section}
+            moveIceCream={this.state.moveIceCream}
+            onChange={this.changeIceCreamName}
+          />
+          <section ref={this.section1} className="section area1">
+            <div className="in-wrap">
+              <span className={this.state.moveIceCream}>
+                <img src="https://www.baskinrobbins.co.kr/assets/images/flavoer/ice_img.png" />
+              </span>
+              <span className="material">
+                <img src="https://www.baskinrobbins.co.kr/assets/images/flavoer/ice_material.png" />
+              </span>
+              <span className="side-img01">
+                <img src="https://www.baskinrobbins.co.kr/assets/images/flavoer/side_img_01.png" />
+              </span>
+            </div>
+          </section>
+          <section ref={this.section2} className="section area2">
+            <div className="in-wrap">
+              <div className="effect-img">
+                {this.imgSrc.map((item, i) => {
+                  return (
+                    <ImgEffecter
+                      key={i + 1}
+                      active={`${i + 1 === this.state.count ? "active" : ""}`}
+                      imgSrc={item}
+                      imgClass={this.state.effectIceCream}
+                    />
+                  );
+                })}
               </div>
-            </section>
-            <section ref={this.section2} className="section area2">
-              <div className="in-wrap">
-                <div className="effect-img">
-                  {this.imgSrc.map((item, i) => {
-                    return (
-                      <ImgEffecter
-                        key={i + 1}
-                        active={`${i + 1 === this.state.count ? "active" : ""}`}
-                        imgSrc={item}
-                        imgClass={this.state.effectIceCream}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
-            </section>
-            <section ref={this.section3} className="section area3">
-              <div className="in-wrap">
-                <span className="side-img02">
-                  <img src="https://www.baskinrobbins.co.kr/assets/images/flavoer/side_img_02.png"></img>
-                </span>
-              </div>
-            </section>
-            <section ref={this.section4} className="section area4"></section>
-          </div>
+            </div>
+          </section>
+          <section ref={this.section3} className="section area3">
+            <div className="in-wrap">
+              <span className="side-img02">
+                <img src="https://www.baskinrobbins.co.kr/assets/images/flavoer/side_img_02.png"></img>
+              </span>
+            </div>
+          </section>
+          <section ref={this.section4} className="section area4"></section>
         </div>
-      </Layout>
+      </div>
+      // </Layout>
     );
   }
 }
