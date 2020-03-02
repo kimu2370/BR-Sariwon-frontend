@@ -10,7 +10,7 @@ class Item extends Component {
     if (this.props.section.current.offsetTop === 796) {
       this.props.onChange();
     } else {
-      this.props.onChange("icecream01");
+      this.props.onChange("move-icecream");
     }
   };
 

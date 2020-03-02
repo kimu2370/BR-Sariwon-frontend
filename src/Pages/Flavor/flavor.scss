@@ -8,111 +8,118 @@
   position: relative;
   padding-bottom: 0px;
   min-width: 1200px;
-}
 
-.section {
-  position: relative;
-  width: 100%;
-  height: 796px;
-  line-height: 0px;
-  letter-spacing: 0px;
-}
-
-.in-wrap {
-  position: absolute;
-  left: 50%;
-  top: 0px;
-  z-index: 11;
-  width: 100%;
-  max-width: 1200px;
-  min-width: 1200px;
-  height: 100%;
-  margin-left: -600px;
-}
-
-.area1 {
-  background: url(https://www.baskinrobbins.co.kr/assets/images/flavoer/flavor_img_1.jpg)
-    center top repeat-x;
-  .icecream01 {
-    @include positionCenter();
-    position: absolute;
-    z-index: 9;
-    top: 250px;
-    transition: all 0.5s ease 0.5s;
-  }
-  .down {
-    transform: translate(-50%, 891px);
-    transition: all 0.5s ease 0.5s;
+  .section {
+    position: relative;
+    width: 100%;
+    height: 796px;
+    line-height: 0px;
+    letter-spacing: 0px;
   }
 
-  .material {
+  .in-wrap {
     position: absolute;
-    top: 222px;
     left: 50%;
-    transform: translate(-52.8%);
-    z-index: 10;
+    top: 0px;
+    z-index: 11;
+    width: 100%;
+    max-width: 1200px;
+    min-width: 1200px;
+    height: 100%;
+    margin-left: -600px;
   }
-  .side-img01 {
+
+  .area1 {
+    background: url(https://www.baskinrobbins.co.kr/assets/images/flavoer/flavor_img_1.jpg)
+      center top repeat-x;
+    .move-icecream {
+      @include positionCenter();
+      position: absolute;
+      z-index: 9;
+      top: 250px;
+      transition: all 0.5s ease 0.5s;
+    }
+    .down {
+      transform: translate(-50%, 891px);
+      transition: all 0.5s ease 0.5s;
+    }
+
+    .material {
+      position: absolute;
+      top: 363px;
+      left: 50%;
+      transform: translate(-52.8%);
+      z-index: 10;
+    }
+    .side-img01 {
+      position: absolute;
+      top: 680px;
+      right: -130px;
+      margin: 0px;
+      animation: move1 2s infinite;
+    }
+    @keyframes move1 {
+      0% {
+        top: 680px;
+      }
+      25% {
+        top: 685px;
+      }
+      50% {
+        top: 680px;
+      }
+      75% {
+        top: 685px;
+      }
+      100% {
+        top: 680px;
+      }
+    }
+  }
+
+  .area2 {
+    background: url(https://www.baskinrobbins.co.kr/assets/images/flavoer/flavor_img_2.jpg)
+      center top repeat-x;
+  }
+
+  .area3 {
+    background: url(https://www.baskinrobbins.co.kr/assets/images/flavoer/flavor_img_3.jpg)
+      center top repeat-x;
+    z-index: 11;
+    .side-img02 {
+      position: absolute;
+      top: -70px;
+      left: 70px;
+      animation: move2 2s infinite;
+    }
+    @keyframes move2 {
+      0% {
+        top: -70px;
+      }
+      25% {
+        top: -65px;
+      }
+      50% {
+        top: -70px;
+      }
+      75% {
+        top: -65px;
+      }
+      100% {
+        top: -70px;
+      }
+    }
+  }
+
+  .area4 {
+    background: url(https://www.baskinrobbins.co.kr/assets/images/flavoer/flavor_img_4.jpg)
+      center top repeat-x;
+  }
+
+  .effect-img {
     position: absolute;
-    top: 710px;
-    right: -130px;
-    margin: 0px;
-    animation: move1 2s infinite;
+    top: 3px;
+    left: 389px;
+    z-index: 1000;
   }
-  @keyframes move1 {
-    0% {
-      top: 710px;
-    }
-    25% {
-      top: 715px;
-    }
-    50% {
-      top: 710px;
-    }
-    75% {
-      top: 715px;
-    }
-    100% {
-      top: 710px;
-    }
-  }
-}
-
-.area2 {
-  background: url(https://www.baskinrobbins.co.kr/assets/images/flavoer/flavor_img_2.jpg)
-    center top repeat-x;
-}
-
-.area3 {
-  background: url(https://www.baskinrobbins.co.kr/assets/images/flavoer/flavor_img_3.jpg)
-    center top repeat-x;
-  z-index: 11;
-  .side-img02 {
-    position: absolute;
-    top: -70px;
-    left: 70px;
-    animation: move2 2s infinite;
-  }
-  @keyframes move2 {
-    0% {
-      top: -70px;
-    }
-    25% {
-      top: -65px;
-    }
-    50% {
-      top: -70px;
-    }
-    75% {
-      top: -65px;
-    }
-    100% {
-      top: -70px;
-    }
-  }
-}
-
-.area4 {
-  background: url(https://www.baskinrobbins.co.kr/assets/images/flavoer/flavor_img_4.jpg)
-    center top repeat-x;
 }

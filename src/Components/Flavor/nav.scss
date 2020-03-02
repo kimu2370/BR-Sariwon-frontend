@@ -1,13 +1,14 @@
-.nav {
+.flavor-nav {
   position: relative;
   width: 100%;
   max-width: 1100px;
   margin: 0px auto;
-  .move1 {
+  .move-bar {
     list-style: none;
-    right: 330px;
+    position: fixed;
+    right: 50px;
     z-index: 50;
-    top: 200px;
+    top: 480px;
     text-align: right;
     transition: all 1s ease 1s;
   }
