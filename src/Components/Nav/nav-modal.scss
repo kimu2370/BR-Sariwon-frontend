@@ -1,8 +1,9 @@
+@import "Styles/common";
 
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 10000; /* Sit on top */
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
@@ -12,6 +13,7 @@
   background-color: rgba(0,0,0,0.2); /* Black w/ opacity */
   animation-name: animateopacity;
   animation-duration: 0.6s;
+  
   
   .modal-content-wrapper {
     background-color: #fefefe;
@@ -61,6 +63,7 @@
       box-sizing: border-box;
       background-color: #efefef;
       border: 0;
+      margin-left: 20px;
       margin-right: 50px;
     }
   }
@@ -141,7 +144,7 @@
     .modal-submit-button {
       width: 147px;
       height: 37px;
-      background-color: #ff7c98;
+      background-color: $br-color;
       color: #ffffff;
       border-radius: 18px;
       font-size: 15px;
