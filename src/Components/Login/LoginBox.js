@@ -91,11 +91,7 @@ class LoginBox extends Component {
           >
             비밀번호재발급
           </a>
-          <a
-            className="sing-up"
-            href="http://members.happypointcard.com/member_02/main.html"
-            target="blank"
-          >
+          <a className="sing-up" href="/signup" target="blank">
             회원가입
           </a>
         </div>

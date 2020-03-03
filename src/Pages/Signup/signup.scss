@@ -1,0 +1,240 @@
+// ------------자주사용하는 style 정의 ---------------
+.inputcontainer-style {
+  display: flex;
+  align-items: center;
+  //   margin-bottom: 10px;
+  //   margin-top: 10px;
+  margin: 13px 0;
+}
+
+.inputbox-style {
+  width: 400px;
+  height: 35px;
+  padding: 17px 15px;
+  //   margin-bottom: 10px;
+  margin-right: 20px;
+  color: #696663;
+  font-size: 15px;
+  background: #efefef;
+  border: none;
+}
+
+.inputxt-style {
+  width: 150px;
+  text-align: center;
+
+  color: #948780;
+}
+
+// .circle-tick {
+//   width: 40px;
+//   height: 40px;
+// }
+
+// .show {
+//   display: block;
+// }
+
+// .hide {
+//   display: none;
+// }
+
+// ---------------------------------------
+
+.Signup {
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .content {
+    .header-content {
+      width: 100%;
+      padding: 35px 0 35px;
+      text-align: center;
+      color: #483834;
+      font-size: 30px;
+      font-weight: bolder;
+    }
+
+    .inner-content {
+      position: relative;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      margin: 0 auto;
+      //   padding-right: 50px;
+      border-top: 2px solid #ff99bf;
+      border-bottom: solid #dadada;
+      .name {
+        @extend .inputcontainer-style;
+
+        div {
+          @extend .inputxt-style;
+        }
+        input {
+          @extend .inputbox-style;
+          &:focus {
+            outline: none;
+          }
+          &.wrongName {
+            box-shadow: inset 0 0 0 2px red;
+            border: none;
+          }
+        }
+        .circle-tick {
+          width: 40px;
+          height: 40px;
+        }
+
+        .show {
+          display: block;
+        }
+
+        .hide {
+          display: none;
+        }
+      }
+
+      .email {
+        @extend .inputcontainer-style;
+
+        div {
+          @extend .inputxt-style;
+        }
+        input {
+          @extend .inputbox-style;
+          &:focus {
+            outline: none;
+          }
+          &.wrongEmail {
+            box-shadow: inset 0 0 0 2px red;
+            border: none;
+          }
+        }
+        .circle-tick {
+          width: 40px;
+          height: 40px;
+        }
+
+        .show {
+          display: block;
+        }
+
+        .hide {
+          display: none;
+        }
+      }
+
+      .pwd {
+        @extend .inputcontainer-style;
+
+        div {
+          @extend .inputxt-style;
+        }
+        input {
+          @extend .inputbox-style;
+          &:focus {
+            outline: none;
+          }
+          &.wrongPwd {
+            box-shadow: inset 0 0 0 2px red;
+            border: none;
+          }
+        }
+        .circle-tick {
+          width: 40px;
+          height: 40px;
+        }
+
+        .show {
+          display: block;
+        }
+
+        .hide {
+          display: none;
+        }
+      }
+
+      .check-pwd {
+        @extend .inputcontainer-style;
+
+        div {
+          @extend .inputxt-style;
+        }
+        input {
+          @extend .inputbox-style;
+          &:focus {
+            outline: none;
+          }
+          &.wrongCheckPwd {
+            box-shadow: inset 0 0 0 2px red;
+            border: none;
+          }
+        }
+        .circle-tick {
+          width: 40px;
+          height: 40px;
+        }
+
+        .show {
+          display: block;
+        }
+
+        .hide {
+          display: none;
+        }
+      }
+
+      .phone-number {
+        @extend .inputcontainer-style;
+
+        div {
+          @extend .inputxt-style;
+        }
+        input {
+          @extend .inputbox-style;
+        }
+        &:focus {
+          outline: none;
+        }
+        &.wrongphone {
+          box-shadow: inset 0 0 0 2px red;
+          border: none;
+        }
+        .circle-tick {
+          width: 40px;
+          height: 40px;
+        }
+
+        .show {
+          display: block;
+        }
+
+        .hide {
+          display: none;
+        }
+      }
+    }
+
+    .bottom-content {
+      .signup-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .btn {
+          width: 550px;
+          height: 60px;
+          margin-top: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #f56f98;
+          border-radius: 5px;
+          color: white;
+          font-size: larger;
+        }
+      }
+    }
+  }
+}
