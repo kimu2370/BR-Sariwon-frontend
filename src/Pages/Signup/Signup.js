@@ -11,8 +11,9 @@ class Signup extends Component {
       pwd: "",
       checkpwd: "",
       phone: "",
+      address: "",
       nameCheck: false,
-      nameWorng: false,
+      nameWrong: false,
       emailCheck: false,
       emailWrong: false,
       pwdCheck: false,
@@ -20,7 +21,9 @@ class Signup extends Component {
       checkpwdCheck: false,
       checkpwdwrong: false,
       phoneCheck: false,
-      phoneWrong: false
+      phoneWrong: false,
+      addressCheck: false,
+      addressWrong: false
     };
   }
   // ---------------method--------------------
@@ -72,13 +75,6 @@ class Signup extends Component {
     const check_spc = /[~!@#$%^*()_]/;
     // console.log("this.state.pwd", this.state.pwd);
     //this.state.pwd 에 잘 들어가는지 확인해봐!!
-
-    // // check_num.test(this.state.pwd) &&
-    // // check_eng.test(this.state.pwd) &&
-    // // check_spc.test(this.state.pwd) &&
-    // // this.state.pwd.length >= 8
-    // //   ? this.setState({ pwdCheck: true })
-    // //   : this.setState({ pwdWrong: true });
 
     if (
       check_num.test(this.state.pwd) &&
@@ -134,6 +130,23 @@ class Signup extends Component {
     }
   };
 
+  handleAddress = e => {
+    this.setState(
+      {
+        address: e.target.value
+      },
+      () => this.checkAddress()
+    );
+  };
+
+  checkAddress = () => {
+    if (this.state.address) {
+      this.setState({ addressCheck: true });
+    } else if (!this.state.address) {
+      this.setState({ addressWrong: true });
+    }
+  };
+
   handleBtn = () => {
     console.log(this.state.name);
     console.log(this.state.email);
@@ -153,6 +166,33 @@ class Signup extends Component {
     }
   };
 
+  handleFetch = () => {
+    fetch("http://10.58.2.22:8000/account/sign-up", {
+      method: "POST",
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.pwd,
+        address: this.state.address,
+        phone: this.state.phone
+      })
+    })
+      // .then(response => console.log(response))
+      // .then(response => response.json())
+      .then(response => {
+        console.log("response 도착", response.statusText);
+        if (response.status === 200) {
+          // response에 access가 있으면 login창으로 이동.
+          this.props.history.push("/login");
+        } else if (response.message === "DUPLICATE_EMAIL") {
+          alert("이메일이 중복되었습니다.");
+        } else {
+          alert("회원가입을 다시 진행해주세요");
+        }
+        return response;
+      })
+      .then(response => console.log(response));
+  };
   // -----------------render---------------------
   render() {
     return (
@@ -266,6 +306,29 @@ class Signup extends Component {
               <img
                 className={
                   this.state.phoneCheck
+                    ? "circle-tick show"
+                    : "circle-tick hide"
+                }
+                alt="circle-tick"
+                src="https://img.icons8.com/officel/40/000000/checked.png"
+              />
+            </div>
+
+            <div className="address">
+              <div>주소</div>
+              <input
+                onChange={this.handleAddress}
+                className={
+                  this.state.addressWrong && !this.state.addressCheck
+                    ? "wrongaddress"
+                    : null
+                }
+                type="text"
+                placeholder="주소를 입력하세요"
+              />
+              <img
+                className={
+                  this.state.addressCheck
                     ? "circle-tick show"
                     : "circle-tick hide"
                 }

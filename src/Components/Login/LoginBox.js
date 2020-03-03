@@ -35,21 +35,30 @@ class LoginBox extends Component {
     } else if (!this.state.pw) {
       alert("비밀번호를 입력하세요");
     } else {
-      fetch("http://10.58.2.215:8000/account/sign-in", {
-        method: "POST",
-        body: JSON.stringify({
-          email: this.state.id,
-          password: this.state.pw
-        })
-      })
-        .then(response => response.json())
-        .then(res => {
-          if (res.Authorization) {
-            localStorage.setItem("token", res.Authorization);
-          }
-        })
-        .then(this.props.history.push("/"));
+      this.loginFetch();
     }
+  };
+
+  loginFetch = () => {
+    fetch("http://10.58.2.22:8000/account/sign-in", {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.id,
+        password: this.state.pw
+      })
+    })
+      .then(response => response.json())
+      .then(response => {
+        if (response.Authorization) {
+          console.log("response.status", response.status);
+          localStorage.setItem("token", response.Authorization);
+          this.props.history.push("/");
+        } else {
+          alert("로그인을 다시 진행해주세요");
+        }
+        return response;
+      })
+      .then(response => console.log(response));
   };
 
   render() {
@@ -73,7 +82,7 @@ class LoginBox extends Component {
             />
           </div>
           <div className="login-btn" onClick={this.handlebtn}>
-            <btn className="btn">로그인</btn>
+            <button className="btn">로그인</button>
           </div>
         </div>
         <div className="left-bottom">

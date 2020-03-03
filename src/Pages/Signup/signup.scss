@@ -1,52 +1,34 @@
-// ------------자주사용하는 style 정의 ---------------
-.inputcontainer-style {
-  display: flex;
-  align-items: center;
-  //   margin-bottom: 10px;
-  //   margin-top: 10px;
-  margin: 13px 0;
-}
-
-.inputbox-style {
-  width: 400px;
-  height: 35px;
-  padding: 17px 15px;
-  //   margin-bottom: 10px;
-  margin-right: 20px;
-  color: #696663;
-  font-size: 15px;
-  background: #efefef;
-  border: none;
-}
-
-.inputxt-style {
-  width: 150px;
-  text-align: center;
-
-  color: #948780;
-}
-
-// .circle-tick {
-//   width: 40px;
-//   height: 40px;
-// }
-
-// .show {
-//   display: block;
-// }
-
-// .hide {
-//   display: none;
-// }
-
-// ---------------------------------------
-
 .Signup {
   height: 100vh;
   background-color: white;
   display: flex;
-  align-items: center;
+  margin-top: 100px;
   justify-content: center;
+
+  .inputcontainer-style {
+    display: flex;
+    align-items: center;
+    margin: 13px 0;
+  }
+
+  .inputbox-style {
+    width: 400px;
+    height: 65px;
+    padding: 17px 15px;
+    margin-right: 20px;
+    color: #696663;
+    font-size: 15px;
+    background: #efefef;
+    border: none;
+  }
+
+  .inputxt-style {
+    width: 150px;
+    text-align: center;
+
+    color: #948780;
+  }
+
   .content {
     .header-content {
       width: 100%;
@@ -198,6 +180,36 @@
           outline: none;
         }
         &.wrongphone {
+          box-shadow: inset 0 0 0 2px red;
+          border: none;
+        }
+        .circle-tick {
+          width: 40px;
+          height: 40px;
+        }
+
+        .show {
+          display: block;
+        }
+
+        .hide {
+          display: none;
+        }
+      }
+
+      .address {
+        @extend .inputcontainer-style;
+
+        div {
+          @extend .inputxt-style;
+        }
+        input {
+          @extend .inputbox-style;
+        }
+        &:focus {
+          outline: none;
+        }
+        &.wrongaddress {
           box-shadow: inset 0 0 0 2px red;
           border: none;
         }
