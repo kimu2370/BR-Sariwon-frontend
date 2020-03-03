@@ -1,0 +1,31 @@
+.menu-detail-container {
+  .content {
+    padding-bottom: 330px;
+    width: auto;
+    margin: 0 auto;
+    padding: 0 0 160px;
+    .inner-content {
+      width: 1200px;
+      margin: 0 auto;
+    }
+  }
+  .view-wrap {
+    width: 900px;
+    margin: 45px auto 0;
+  }
+  .btn-menu-list {
+    text-align: center;
+    span {
+      display: inline-block;
+      font-size: 17px;
+      font-weight: 700;
+      border: 2px solid #f56f98;
+      line-height: 50px;
+      width: 178px;
+      height: 50px;
+      text-align: center;
+      color: #f56f98;
+      border-radius: 25px;
+    }
+  }
+}

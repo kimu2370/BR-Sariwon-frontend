@@ -1,0 +1,65 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "아이스 킷캣",
+      "name_en": "ICE KITKAT",
+      "icecream_option": "",
+      "description": "바닐라와 초콜릿 아이스크림에 킷캣 초콜릿이 가득~",
+      "thumbnail": "http://www.baskinrobbins.co.kr/upload/product/1654067239.png",
+      "release_date": "2020-01-29",
+      "flavors": null,
+      "menu": 1
+    }
+  ],
+  "sizes": [
+    {
+      "id": 1,
+      "name": "싱글레귤러",
+      "price": 3200,
+      "description": "한가지 맛을 센스있게 즐길 수 있는 사이즈 (용기무게 제외중량 115g)"
+    },
+    {
+      "id": 2,
+      "name": "싱글킹",
+      "price": 4000,
+      "description": "좋아하는 맛 한가지만 듬뿍맛볼 수 있는 사이즈 (중량 145g)"
+    },
+    {
+      "id": 3,
+      "name": "더블주니어",
+      "price": 4300,
+      "description": "두가지 맛을 조금씩 한번에 즐기는 사이즈 (중량 150g)"
+    },
+    {
+      "id": 4,
+      "name": "더블레귤러",
+      "price": 6200,
+      "description": "아이스크림 매니아를 위한 진정한 더블 사이즈 (중량 230g)"
+    },
+    {
+      "id": 5,
+      "name": "파인트",
+      "price": 8200,
+      "description": "3가지 맛을 골라먹는 재미가 있는 사이즈 (중량 320g)"
+    },
+    {
+      "id": 6,
+      "name": "쿼터",
+      "price": 15500,
+      "description": "4가지 맛을 골라먹는 재미가 있는 사이즈 (중량 620g)"
+    },
+    {
+      "id": 7,
+      "name": "패밀리",
+      "price": 22000,
+      "description": "5가지 맛을 나눠먹는 재미가 있는 사이즈 (중량 960g)"
+    },
+    {
+      "id": 8,
+      "name": "하프갤런",
+      "price": 26500,
+      "description": "6가지 맛을 나눠먹는 재미가 있는 사이즈 (중량 1200g)"
+    }
+  ]
+}

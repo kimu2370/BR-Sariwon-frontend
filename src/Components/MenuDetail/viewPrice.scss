@@ -1,0 +1,88 @@
+.view-price {
+  margin: 0 0 98px 0;
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+  section {
+    float: left;
+    width: 408px;
+  }
+  .conecup {
+    width: 424px;
+    margin-right: 63px;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 33px;
+    font-weight: normal;
+  }
+  ul {
+    list-style: none;
+    li {
+      float: left;
+      width: 152px;
+      padding: 14px 0 0 60px;
+      font-size: 11px;
+      color: #aca09a;
+      line-height: 16px;
+      min-height: 127px;
+      .title {
+        display: block;
+        font-size: 14px;
+        color: #837e7c;
+        margin-bottom: 9px;
+      }
+      .price {
+        display: block;
+        color: #ffa94c;
+        font-size: 12px;
+        margin-top: 10px;
+      }
+    }
+    .cc1 {
+      background: url(https://www.baskinrobbins.co.kr/assets/images/menu/ico_c1.gif)
+        no-repeat 3px 21px;
+    }
+    .cc2 {
+      background: url(https://www.baskinrobbins.co.kr/assets/images/menu/ico_c2.gif)
+        no-repeat 3px 17px;
+      padding-left: 67px;
+      width: 145px;
+    }
+    .cc3 {
+      background: url(https://www.baskinrobbins.co.kr/assets/images/menu/ico_c3.gif)
+        no-repeat 3px 12px;
+    }
+    .cc4 {
+      background: url(https://www.baskinrobbins.co.kr/assets/images/menu/ico_c4.gif)
+        no-repeat 3px 0px;
+      padding-left: 67px;
+      width: 145px;
+    }
+
+    @for $i from 1 through 4 {
+      .hp#{$i} {
+        padding-left: 78px;
+        width: 125px;
+      }
+    }
+    .hp1 {
+      background: url(https://www.baskinrobbins.co.kr/assets/images/menu/ico_p1.gif)
+        no-repeat 5px 19px;
+    }
+    .hp2 {
+      background: url(https://www.baskinrobbins.co.kr/assets/images/menu/ico_p2.gif)
+        no-repeat 2px 19px;
+    }
+    .hp3 {
+      background: url(https://www.baskinrobbins.co.kr/assets/images/menu/ico_p3.gif)
+        no-repeat 5px 14px;
+    }
+    .hp4 {
+      background: url(https://www.baskinrobbins.co.kr/assets/images/menu/ico_p4.gif)
+        no-repeat 0px 14px;
+    }
+  }
+}
