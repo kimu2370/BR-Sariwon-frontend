@@ -7,13 +7,22 @@ import Layout from "Pages/Layout/Layout";
  */
 class Store extends Component {
   render() {
-    const { lat, lng, moveStore, number } = this.props;
+    const {
+      lat,
+      lng,
+      moveStore,
+      number,
+      name,
+      address,
+      phoneNumber,
+      businessTime
+    } = this.props;
     return (
       <li className="store-wrapper">
         <article>
           <h3 onClick={() => moveStore(lat, lng, number - 1)}>
             <small>{number}</small>
-            <span>{this.props.name}</span>
+            <span>{name}</span>
             <div className="store-favorite-button-wrapper">
               <img
                 className="store-favorite-button"
@@ -24,10 +33,10 @@ class Store extends Component {
           </h3>
           <div className="store-info">
             <address>
-              <span>{this.props.address}</span>
+              <span>{address}</span>
             </address>
-            <span>{this.props.phoneNumber}</span>
-            <span>{this.props.businessTime}</span>
+            <span>{phoneNumber}</span>
+            <span>{businessTime}</span>
           </div>
         </article>
       </li>

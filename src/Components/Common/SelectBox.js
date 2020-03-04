@@ -22,10 +22,9 @@ class SelectBox extends Component {
   optionClicked = (id, name) => {
     this.setState({ selected: false, text: name });
     if (this.props.type === "city") {
-      this.setState(this.props.changeSelected(id, name, "city"));
-    }
-    if (this.props.type === "district") {
-      this.setState(this.props.changeSelected(id, name, "district"));
+      this.props.changeSelected(id, name, "city");
+    } else {
+      this.props.changeSelected(id, name, "district");
     }
   };
 
@@ -47,7 +46,7 @@ class SelectBox extends Component {
               onClick={e => {
                 const id = "";
                 const name = e.currentTarget.childNodes[1].innerHTML;
-                this.optionClicked(id, name, e.target.className);
+                this.optionClicked(id, name);
               }}
             >
               <input type="radio" className="radio" name="category" />
