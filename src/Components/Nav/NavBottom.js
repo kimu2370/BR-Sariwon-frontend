@@ -40,7 +40,7 @@ export default class NavBottom extends Component {
           >
             <li>
               <div className="right-button-flavor">FLAVOR OF THE MONTH</div>
-              <a href="">
+              <a href="1">
                 <img
                   className={`monthly-icecream ${
                     this.state.isHover

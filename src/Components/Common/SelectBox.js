@@ -12,21 +12,25 @@ class SelectBox extends Component {
     this.setState({ selected: !this.state.selected });
   };
 
+  componentDidMount() {
+    // document.onclick = e => {
+    //   console.log("e: ", e.target.className);
+    // };
+  }
+
   // 목록의 아이템 클릭
   optionClicked = (id, name) => {
     this.setState({ selected: false, text: name });
     if (this.props.type === "city") {
-      this.setState(this.props.changeSelected(id, "city"));
+      this.setState(this.props.changeSelected(id, name, "city"));
     }
     if (this.props.type === "district") {
-      this.setState(this.props.changeSelected(id, "district"));
+      this.setState(this.props.changeSelected(id, name, "district"));
     }
   };
 
   render() {
     const { list, itemId, itemName, widthSize, heightSize } = this.props;
-
-    console.log("selectbox list:", this.props.list);
     return (
       <div className="select-box-container">
         <div className="select-box">
@@ -43,14 +47,15 @@ class SelectBox extends Component {
               onClick={e => {
                 const id = "";
                 const name = e.currentTarget.childNodes[1].innerHTML;
-                this.optionClicked(id, name);
+                this.optionClicked(id, name, e.target.className);
               }}
             >
               <input type="radio" className="radio" name="category" />
-              <label className="option-name">{this.props.defaultText}</label>
+              <label className="option-name">구/군 선택</label>
             </div>
             {list.map(item => (
               <div
+                key={item.id}
                 style={{ width: `${widthSize}px`, height: `${heightSize}px` }}
                 className="option"
                 onClick={e => {
@@ -71,6 +76,7 @@ class SelectBox extends Component {
           </div>
 
           <div>
+            {/* 선택 박스 확장 전 */}
             <div
               className="selected"
               style={{
@@ -79,7 +85,11 @@ class SelectBox extends Component {
               }}
               onClick={() => this.selectedClicked()}
             >
-              <label className="option-name">{this.state.text}</label>
+              <label className="option-name">
+                {this.props.type === "district"
+                  ? this.props.defaultText
+                  : this.state.text}
+              </label>
             </div>
           </div>
         </div>

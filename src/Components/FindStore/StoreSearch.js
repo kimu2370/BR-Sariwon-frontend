@@ -1,44 +1,56 @@
 import React, { Component } from "react";
-import "Components/FindStore/StoreSearch.scss";
 import SelectBox from "Components/Common/SelectBox";
 import Store from "Components/FindStore/Store";
-
+import { URL } from "config";
+import "Components/FindStore/StoreSearch.scss";
+/*
+ * 매장 검색 탭
+ */
 export default class StoreSearch extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      // 도/시 선택 리스트
       cityList: [],
+      // 구/군 선택 리스트
       districtList: [],
       selectedCity: "",
       selectedDistrict: "",
+      selectedDistrictName: "구/군 선택",
       storeName: "",
       selectTab: true,
       storeList: []
     };
+    this.cnt = 0;
   }
 
   componentDidMount() {
     //10.58.2.22:8000/store/cities
-    this.selectList("http://10.58.2.22:8000/store/cities", "city");
+    this.selectList(`${URL}/store/cities`, "city");
   }
 
-  changeSelected = (id, type) => {
+  changeSelected = (id, name, type) => {
     console.log("StoreSearch changeSelected: ", id);
 
     // http://10.58.2.22:8000/store/districts?city=${id}
 
     if (type === "city") {
       // 선택 된 도/시 id
-      this.setState({ selectedCity: id });
+      this.setState({
+        selectedCity: id,
+        selectedDistrictName: "구/군 선택",
+        selectedDistrict: ""
+      });
       // 도/시 선택 후 구/군 리스트 목록 저장하기
+      let cityId = id ? `city=${id}` : "";
       this.selectList(
-        `http://10.58.2.22:8000/store/districts?city=${id}`,
+        `http://10.58.2.22:8000/store/districts?${cityId}`,
         "district"
       );
     } else if (type === "district") {
       // 선택 된 구/군 id
-      this.setState({ selectedDistrict: id });
+      this.setState({ selectedDistrict: id, selectedDistrictName: name });
     }
   };
 
@@ -78,19 +90,20 @@ export default class StoreSearch extends Component {
   };
 
   render() {
-    console.log("select:", this.state.selectTab);
+    console.log("selectedTab:", this.state.selectTab);
     console.log("selected district: ", this.state.selectedDistrict);
     console.log("selected city: ", this.state.selectedCity);
+    console.log("list: ", this.props.storeList);
 
     const { selectedCity, selectedDistrict, storeName } = this.state;
     return (
       <div className="store-search">
         <nav className="header">
           <ul>
-            <li onClick={() => this.changeTab()} class="find-store-tab">
+            <li onClick={() => this.changeTab()} className="find-store-tab">
               <span>매장찾기</span>
             </li>
-            <li class="favorite-store-tab">
+            <li className="favorite-store-tab">
               <span>자주가는 매장</span>
             </li>
           </ul>
@@ -101,7 +114,7 @@ export default class StoreSearch extends Component {
             <form className="form" action="">
               <fieldset>
                 <legend>매장 찾기</legend>
-                <div class="location-wrapper">
+                <div className="location-wrapper">
                   <SelectBox
                     defaultText="도/시 선택"
                     list={this.state.cityList}
@@ -114,7 +127,7 @@ export default class StoreSearch extends Component {
                   />
 
                   <SelectBox
-                    defaultText="구/군 선택"
+                    defaultText={this.state.selectedDistrictName}
                     list={this.state.districtList}
                     itemId="id"
                     itemName="name"
@@ -167,7 +180,7 @@ export default class StoreSearch extends Component {
             </div>
             <div className="total">
               <span>
-                총 <strong>0</strong>건 검색되었습니다.
+                총 <strong>{this.props.storeAmount}</strong>건 검색되었습니다.
               </span>
             </div>
           </div>
@@ -179,14 +192,31 @@ export default class StoreSearch extends Component {
               <br />
               자주가는 매장 정보를 확인 하실 수 있습니다.
             </p>
-            <a href="">LOG IN</a>
+            <a href="1">LOG IN</a>
           </div>
         )}
 
+        {/* 매장 검색 스크롤 리스트 */}
         <div className="list">
           <div className="scroll">
             <ul>
-              <Store />
+              {this.props.storeList.map((item, i) => {
+                let address = `${item.city} ${item.district} ${item.street}`;
+                return (
+                  <Store
+                    key={item.store_code}
+                    number={i + 1}
+                    name={item.name}
+                    storeCode={item.store_code}
+                    address={address}
+                    businessTime={item.business_time}
+                    phoneNumber={item.phone_number}
+                    lat={item.latitude}
+                    lng={item.longitude}
+                    moveStore={this.props.moveStore}
+                  />
+                );
+              })}
             </ul>
           </div>
         </div>

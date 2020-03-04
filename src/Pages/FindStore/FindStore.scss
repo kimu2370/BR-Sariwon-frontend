@@ -7,3 +7,59 @@
     }
 }
 
+.customoverlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 260px;
+    height: 217px;
+    background-color: #ffffff;
+    border: 1px solid rgb(118, 129, 168);
+    padding: 15px;
+    color: rgb(47, 35, 28);
+    z-index: 10001232131230000000000;
+    
+    .title {
+        font-size: 25px;
+        padding: 10px 0 15px 0;
+        font-weight: 200px;
+    }
+
+    .close {
+        position: absolute;
+        top: 5px;
+        right: 15px;
+    }
+
+    .body {
+        font-size: 12px;
+        .wrapper {
+            display: flex;
+            
+            .th {
+                width: 47px;
+            }
+            .td {
+                padding: 3px 0px 3px 10px;
+                width: 183px;
+                white-space: initial;
+            }
+        }
+    }
+
+    
+
+    .bottom {
+        display: flex;
+        font-size: 13px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .more-image {
+            margin-right: 8px;
+        }
+    }
+}

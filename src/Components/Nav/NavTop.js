@@ -15,9 +15,7 @@ export default class NavTop extends Component {
             ))}
           </ul>
           <h1 className="center-logo-wrapper">
-            <a className="center-logo" href="http://www.baskinrobbins.co.kr/">
-              baskin robbins
-            </a>
+            <a className="center-logo">baskin robbins</a>
           </h1>
           <div className="right-buttons">
             {Data.rightButtons.map(button => (

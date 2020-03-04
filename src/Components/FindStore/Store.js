@@ -1,14 +1,19 @@
 import React, { Component } from "react";
 import "Components/FindStore/store.scss";
+import Layout from "Pages/Layout/Layout";
 
+/*
+ * 매장 찾기 목록 아이템
+ */
 class Store extends Component {
   render() {
+    const { lat, lng, moveStore, number } = this.props;
     return (
       <li className="store-wrapper">
-        {/* <article>
-          <h3>
-            <small>1</small>
-            <span>강남역사</span>
+        <article>
+          <h3 onClick={() => moveStore(lat, lng, number - 1)}>
+            <small>{number}</small>
+            <span>{this.props.name}</span>
             <div className="store-favorite-button-wrapper">
               <img
                 className="store-favorite-button"
@@ -19,12 +24,12 @@ class Store extends Component {
           </h3>
           <div className="store-info">
             <address>
-              <span>서울 서초구 강남대로 지하 390</span>
+              <span>{this.props.address}</span>
             </address>
-            <span>02-508-3103</span>
-            <span>AM10~PM11</span>
+            <span>{this.props.phoneNumber}</span>
+            <span>{this.props.businessTime}</span>
           </div>
-        </article> */}
+        </article>
       </li>
     );
   }

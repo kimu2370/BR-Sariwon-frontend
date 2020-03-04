@@ -26,11 +26,11 @@ const Data = {
     }
   ],
   products: [
-    { product: "아이스크림" },
-    { product: "아이스크림케이크" },
-    { product: "음료" },
-    { product: "커피" },
-    { product: "디저트" }
+    { id: "아이스크림" },
+    { id: "아이스크림케이크" },
+    { id: "음료" },
+    { id: "커피" },
+    { id: "디저트" }
   ]
 };
 

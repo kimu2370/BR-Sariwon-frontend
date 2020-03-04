@@ -46,13 +46,13 @@ class NavModal extends Component {
                         자주 찾는 해시태그
                       </dt>
                       <dd>
-                        <a className="hashtag-name" href="">
+                        <a className="hashtag-name" href="1">
                           #아이스 킷캣
                         </a>
-                        <a className="hashtag-name" href="">
+                        <a className="hashtag-name" href="1">
                           #누가봐도 킷캣케이크
                         </a>
-                        <a className="hashtag-name" href="">
+                        <a className="hashtag-name" href="1">
                           #킷캣오리지널블라스트
                         </a>
                       </dd>
