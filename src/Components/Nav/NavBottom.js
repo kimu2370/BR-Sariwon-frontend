@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import ExtendBottomButton from "Components/Nav/ExtendBottomButton";
 import Data from "./NavBottomData";
+import { withRouter } from "react-router-dom";
 import "Components/Nav/nav-bottom.scss";
 
-export default class NavBottom extends Component {
+export class NavBottom extends Component {
   state = {
-    isHover: false
+    isHover: false,
+    logged: false
   };
 
   buttonHover = () => {
@@ -16,6 +18,33 @@ export default class NavBottom extends Component {
     this.setState({ isHover: false });
   };
 
+  handleLogin = () => {
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      window.localStorage.removeItem("token");
+    } else {
+      this.props.history.push("/login");
+    }
+  };
+  handleJoin = () => {
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      this.props.history.push("/");
+    } else {
+      this.props.history.push("/signup");
+    }
+  };
+
+  componentDidMount() {
+    const token = window.localStorage.getItem("token");
+    console.log(token);
+    if (token) {
+      this.setState({ logged: true });
+    } else {
+      this.setState({ logged: false });
+    }
+  }
+
   render() {
     console.log("hover: ", this.state.isHover);
     return (
@@ -23,10 +52,24 @@ export default class NavBottom extends Component {
         <div className="menu-area">
           <ul className="nav-menu-left">
             <li>
-              <div className="nav-menu-login">LOGIN</div>
+              <div
+                className={
+                  this.state.logged ? "nav-menu-logout" : "nav-menu-login"
+                }
+                onClick={this.handleLogin}
+              >
+                LOGIN
+              </div>
             </li>
             <li>
-              <div className="nav-menu-join">JOIN</div>
+              <div
+                className={
+                  this.state.logged ? "nav-menu-mypage" : "nav-menu-join"
+                }
+                onClick={this.handleJoin}
+              >
+                JOIN
+              </div>
             </li>
           </ul>
           <ul
@@ -40,7 +83,7 @@ export default class NavBottom extends Component {
           >
             <li>
               <div className="right-button-flavor">FLAVOR OF THE MONTH</div>
-              <a href="">
+              <a href="1">
                 <img
                   className={`monthly-icecream ${
                     this.state.isHover
@@ -125,3 +168,5 @@ export default class NavBottom extends Component {
     );
   }
 }
+
+export default withRouter(NavBottom);
