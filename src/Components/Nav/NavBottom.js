@@ -29,11 +29,15 @@ export class NavBottom extends Component {
     token ? this.props.history.push("/") : this.props.history.push("/signup");
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
+    this.changeLoginState();
+  };
+
+  changeLoginState = () => {
     const token = window.localStorage.getItem("token");
     console.log(token);
     token ? this.setState({ logged: true }) : this.setState({ logged: false });
-  }
+  };
 
   render() {
     console.log("hover: ", this.state.isHover);
