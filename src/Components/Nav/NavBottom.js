@@ -20,20 +20,23 @@ export class NavBottom extends Component {
 
   handleLogin = () => {
     const token = window.localStorage.getItem("token");
-    token
-      ? window.localStorage.removeItem("token")
-      : this.props.history.push("/login");
+    if (token) {
+      window.localStorage.removeItem("token");
+      window.location.reload();
+    } else {
+      this.props.history.push("/login");
+    }
   };
   handleJoin = () => {
     const token = window.localStorage.getItem("token");
     token ? this.props.history.push("/") : this.props.history.push("/signup");
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
     const token = window.localStorage.getItem("token");
     console.log(token);
     token ? this.setState({ logged: true }) : this.setState({ logged: false });
-  }
+  };
 
   render() {
     console.log("hover: ", this.state.isHover);

@@ -53,6 +53,7 @@ class LoginBox extends Component {
           console.log("response.status", response.status);
           localStorage.setItem("token", response.Authorization);
           this.props.history.push("/");
+          window.location.reload();
         } else {
           alert("로그인을 다시 진행해주세요");
         }
