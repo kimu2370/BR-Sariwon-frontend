@@ -155,9 +155,11 @@
 
     .list {
         height: 390px;
+        overflow: auto;
         .scroll {
+            
             ul {
-                overflow: auto;
+                
             }
         }
     }
