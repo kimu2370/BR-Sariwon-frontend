@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import ExtendBottomButton from "Components/Nav/ExtendBottomButton";
 import Data from "./NavBottomData";
-import { withRouter } from "react-router-dom";
 import "Components/Nav/nav-bottom.scss";
 
 export class NavBottom extends Component {
@@ -20,29 +20,19 @@ export class NavBottom extends Component {
 
   handleLogin = () => {
     const token = window.localStorage.getItem("token");
-    if (token) {
-      window.localStorage.removeItem("token");
-    } else {
-      this.props.history.push("/login");
-    }
+    token
+      ? window.localStorage.removeItem("token")
+      : this.props.history.push("/login");
   };
   handleJoin = () => {
     const token = window.localStorage.getItem("token");
-    if (token) {
-      this.props.history.push("/");
-    } else {
-      this.props.history.push("/signup");
-    }
+    token ? this.props.history.push("/") : this.props.history.push("/signup");
   };
 
   componentDidMount() {
     const token = window.localStorage.getItem("token");
     console.log(token);
-    if (token) {
-      this.setState({ logged: true });
-    } else {
-      this.setState({ logged: false });
-    }
+    token ? this.setState({ logged: true }) : this.setState({ logged: false });
   }
 
   render() {
