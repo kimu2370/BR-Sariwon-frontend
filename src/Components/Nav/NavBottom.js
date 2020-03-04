@@ -33,10 +33,6 @@ export class NavBottom extends Component {
   };
 
   componentDidMount = () => {
-    this.changeLoginState();
-  };
-
-  changeLoginState = () => {
     const token = window.localStorage.getItem("token");
     console.log(token);
     token ? this.setState({ logged: true }) : this.setState({ logged: false });
