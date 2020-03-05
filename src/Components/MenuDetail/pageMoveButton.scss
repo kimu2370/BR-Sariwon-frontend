@@ -1,0 +1,106 @@
+//::before 선택한 요소의 첫 자식으로 의사 요소를 하나 생성합니다.
+//::after 선택한 요소의 맨 마지막 자식으로 의사 요소를 하나 생성합니다.
+
+.page-move-btn {
+  position: absolute;
+  left: 50%;
+  width: 1200px;
+  margin-left: -600px;
+  height: 0;
+  z-index: 999;
+  .prev-btn {
+    .btn {
+      float: left;
+      &::before {
+        left: 32px;
+        content: "<";
+      }
+      .btn-on {
+        left: 60px;
+      }
+    }
+    span {
+      float: left;
+    }
+  }
+  .next-btn {
+    .btn {
+      float: right;
+      &::before {
+        right: 32px;
+        content: ">";
+      }
+      .btn-on {
+        right: 60px;
+      }
+    }
+    span {
+      float: right;
+    }
+  }
+  .btn {
+    overflow: hidden;
+    position: relative;
+    width: 73px;
+    height: 73px;
+    border: 1px solid #bbb;
+    border-radius: 36px;
+    box-sizing: border-box;
+    background-color: #fff;
+    -webkit-transition: width 0.2s ease;
+    transition: width 0.2s ease;
+    &::before {
+      color: #d1cab7;
+      position: absolute;
+      top: 35px;
+      line-height: 0;
+      font-size: 16px;
+    }
+  }
+  .btn:hover {
+    cursor: pointer;
+    width: 275px;
+    border: 1px solid #f37da0;
+    &::before {
+      color: #ff99bf;
+      font-weight: 700;
+    }
+    .btn-on {
+      opacity: 1;
+    }
+  }
+  .btn-on {
+    position: absolute;
+    top: 15px;
+    width: 190px;
+    background: #fff;
+    opacity: 0;
+    border-radius: 34px 34px;
+    transition: opacity 0.25s ease;
+  }
+  .image {
+    display: inline-block;
+    height: 56px;
+    img {
+      width: 45px;
+    }
+  }
+  .con {
+    background: url(https://www.baskinrobbins.co.kr/assets/images/menu/img_con.png)
+      50% 100% no-repeat;
+    background-size: 17px auto;
+  }
+  .title {
+    display: inline-block;
+    overflow: hidden;
+    width: 118px;
+    min-height: 48px;
+    padding: 0 10px 0;
+    font-size: 13px;
+    color: #2f231c;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 48px;
+  }
+}

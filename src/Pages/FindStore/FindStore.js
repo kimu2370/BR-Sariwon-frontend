@@ -100,9 +100,19 @@ class FindStore extends Component {
       .then(response => response.json())
       .then(response => {
         console.log("submit response:", response.stores);
+        let cnt = 0;
         response.stores.map(store => {
           console.log("store: ", store.longitude, store.latitude);
           this.addMarker(this.map, store.longitude, store.latitude);
+          var moveLatLon = new window.kakao.maps.LatLng(
+            store.longitude,
+            store.latitude
+          );
+          if (cnt === response.stores.length - 2) {
+            // 지도 중심을 이동 시킵니다
+            this.map.panTo(moveLatLon);
+          }
+          cnt++;
         });
       })
       .catch(error => {

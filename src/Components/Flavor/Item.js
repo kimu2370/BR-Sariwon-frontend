@@ -7,6 +7,8 @@ class Item extends Component {
       block: "start",
       behavior: "smooth"
     });
+
+    //scroll이 796에 도달하면 아이스크림 down 메소드 실행
     if (this.props.section.current.offsetTop === 796) {
       this.props.onChange();
     } else {
@@ -18,7 +20,7 @@ class Item extends Component {
     return (
       <li onClick={this.handleClick}>
         <a className={this.props.className}>
-          <img src={this.props.src}></img>
+          <img src={this.props.src} alt=""></img>
         </a>
       </li>
     );

@@ -5,10 +5,10 @@
   text-decoration: none;
   list-style: none;
   color: inherit;
-  font-family: "Nanum Barun Gothic", "나눔고딕", "NanumGothic", "돋움", "Dotum", sans-serif;
+  font-family: "Nanum Barun Gothic", "나눔고딕", "NanumGothic", "돋움", "Dotum",
+    sans-serif;
   line-height: 1.5;
 }
-
 
 html,
 body,
@@ -88,7 +88,7 @@ video {
   background: transparent;
   font-weight: normal;
   // letter-spacing: 1px;
-  letter-spacing: -.05em;
+  letter-spacing: -0.05em;
 }
 ​ *:focus {
   outline: none;

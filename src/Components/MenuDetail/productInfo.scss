@@ -5,6 +5,9 @@
   position: relative;
   overflow: hidden;
   margin-bottom: 80px;
+  .wrap {
+    display: flex;
+  }
   .text {
     color: #948780;
     font-weight: normal;
@@ -12,60 +15,10 @@
     min-width: 38px;
     margin-right: 20px;
   }
-  .nav {
-    position: absolute;
-    right: 0;
-    top: 49px;
-    .sns {
-      display: flex;
-      list-style: none;
-      li {
-        margin-left: 8px;
-        cursor: pointer;
-      }
-      .favorite {
-        display: block;
-        width: 35px;
-        height: 35px;
-        background: url(https://www.baskinrobbins.co.kr/assets/images/common/ico_favorite.png)
-          0 0;
-        position: relative;
-        &:hover {
-          // visibility: visible;
-          background: url(https://www.baskinrobbins.co.kr/assets/images/common/ico_favorite_on.png)
-            0 0;
-          span {
-            visibility: visible;
-          }
-        }
-        span {
-          visibility: hidden;
-          display: block;
-          position: absolute;
-          top: -32px;
-          left: 50%;
-          width: 130px;
-          height: 20px;
-          margin: 0 0 6px -70px;
-          border-radius: 10px;
-          border: 1px solid #e1e0e1;
-          background: #fff;
-          color: #a79c8e;
-          text-align: center;
-          line-height: 22px;
-          font-size: 11px;
-          &::after {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            height: 6px;
-            background: url(https://www.baskinrobbins.co.kr/assets/images/store/bg_tooltip_arrow.png)
-              50% 100% no-repeat;
-            content: "";
-            width: 5px;
-          }
-        }
-      }
-    }
+  .option {
+    width: 460px;
+  }
+  .link-store {
+    cursor: pointer;
   }
 }
