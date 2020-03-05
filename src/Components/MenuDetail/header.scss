@@ -1,6 +1,6 @@
 .menu-detail-container {
   .header {
-    padding: 52px 0 0 0;
+    padding: 70px 0 0 0;
     text-align: center;
     background: url(https://www.baskinrobbins.co.kr/assets/images/common/icon_title_top.png)
       50% 0 no-repeat;
@@ -25,12 +25,13 @@
       font-size: 16px;
       text-align: center;
       line-height: 20px;
+      padding-bottom: 50px;
     }
     .photo {
       text-align: center;
       border-bottom: 2px solid #ff7c98;
       height: 400px;
-      img {
+      .img {
         margin-top: -33px;
       }
     }
@@ -40,13 +41,13 @@
       background-size: 110px auto;
     }
     .buy {
-      cursor: pointer;
       position: absolute;
       left: 0;
       bottom: -23px;
       width: 100%;
       z-index: 9;
       .buy-btn {
+        cursor: pointer;
         display: inline-block;
         font-size: 17px;
         font-weight: 700;

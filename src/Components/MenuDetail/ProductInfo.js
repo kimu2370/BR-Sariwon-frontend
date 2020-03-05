@@ -1,46 +1,48 @@
 import React, { Component } from "react";
 import "Components/MenuDetail/productInfo.scss";
+import SocialIcon from "Components/Common/SocialIcon";
 class ProductInfo extends Component {
   render() {
+    const { product } = this.props;
     return (
       <div className="product-info">
         <div className="date-wrap">
-          <span className="text">
-            {this.props.product.release_date !== "" ? "출시일" : ""}
-          </span>
-          <span className="date">{this.props.product.release_date}</span>
+          {product.menu === 1 ? (
+            <>
+              <span className="text">
+                {product.release_date !== "" ? "출시일" : ""}
+              </span>
+              <span className="option">{product.release_date}</span>
+            </>
+          ) : product.menu === 2 ? (
+            <div className="wrap">
+              <span className="text">아이스크림</span>
+              <span className="option">
+                {product.flavors.map(item => item.name).join(", ")}
+              </span>
+            </div>
+          ) : product.menu === 3 ? (
+            <>
+              <span className="text">아이스크림 선택</span>
+              <span className="option">
+                {product.icecream_option.indexOf("가능") > 0 ? "가능" : "불가"}
+              </span>
+            </>
+          ) : product.menu === 4 ? (
+            <>
+              <span className="text">
+                <img
+                  className="link-store"
+                  src="http://www.baskinrobbins.co.kr/assets/images/menu/btn_store.gif"
+                  alt=""
+                ></img>
+              </span>
+            </>
+          ) : (
+            <span className="text"></span>
+          )}
         </div>
-        <div className="nav">
-          <ul className="sns">
-            <li className="favorite">
-              <span>좋아하는 플레이버 등록</span>
-            </li>
-            <li>
-              <a href="#" role="button">
-                <img
-                  src="http://www.baskinrobbins.co.kr/assets/images/common/icon_facebook.png"
-                  alt="FACEBOOK"
-                ></img>
-              </a>
-            </li>
-            <li>
-              <a href="#" role="button">
-                <img
-                  src="http://www.baskinrobbins.co.kr/assets/images/common/icon_twitter.png"
-                  alt="TWITTER"
-                ></img>
-              </a>
-            </li>
-            <li>
-              <a href="#" role="button">
-                <img
-                  src="https://www.baskinrobbins.co.kr/assets/images/common/icon_copy.png"
-                  alt="COPY"
-                ></img>
-              </a>
-            </li>
-          </ul>
-        </div>
+        <SocialIcon product={product} />
       </div>
     );
   }

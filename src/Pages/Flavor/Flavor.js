@@ -32,32 +32,6 @@ class Flavor extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   window.addEventListener("scroll", this.handleScroll);
-  // }
-
-  // componentWillUnmount() {
-  //   window.removeEventListener("scroll", this.handleScroll);
-  // }
-
-  // getCurrentScrollPercentage = () => {
-  //   return (
-  //     ((window.scrollY + window.innerHeight) / document.body.clientHeight) * 100
-  //   );
-  // };
-
-  // handleScroll = e => {
-  //   console.log(this.getCurrentScrollPercentage());
-  //   let currentScrollPercentage = this.getCurrentScrollPercentage();
-  //   let scrollTop = e.target.scrollingElement.scrollTop;  현재 스크롤되는 요소의 top 값
-  //   currentScrollPercentage > 27 &&
-  //     currentScrollPercentage < 30 &&
-  //     this.state.section[0].current.scrollIntoView();
-  //   this.setState({
-  //     reachTop: !this.state.reachTop
-  //   });
-  // };
-
   changeIceCreamName = inputArg => {
     if (!inputArg) {
       //move-icecream down
@@ -79,28 +53,35 @@ class Flavor extends Component {
   };
 
   render() {
+    const { section, moveIceCream, count, effectIceCream } = this.state;
     return (
       // <Layout>
       <div className="flavor-container">
         <div className="move">
           <Nav
-            // reachTop={
-            //   this.state.reachTop ? "scroll-top-after" : "scroll-top-before"
-            // }
-            section={this.state.section}
-            moveIceCream={this.state.moveIceCream}
+            section={section}
+            moveIceCream={moveIceCream}
             onChange={this.changeIceCreamName}
           />
           <section ref={this.section1} className="section area1">
             <div className="in-wrap">
-              <span className={this.state.moveIceCream}>
-                <img src="https://www.baskinrobbins.co.kr/assets/images/flavoer/ice_img.png" />
+              <span className={moveIceCream}>
+                <img
+                  src="https://www.baskinrobbins.co.kr/assets/images/flavoer/ice_img.png"
+                  alt=""
+                />
               </span>
               <span className="material">
-                <img src="https://www.baskinrobbins.co.kr/assets/images/flavoer/ice_material.png" />
+                <img
+                  src="https://www.baskinrobbins.co.kr/assets/images/flavoer/ice_material.png"
+                  alt=""
+                />
               </span>
               <span className="side-img01">
-                <img src="https://www.baskinrobbins.co.kr/assets/images/flavoer/side_img_01.png" />
+                <img
+                  src="https://www.baskinrobbins.co.kr/assets/images/flavoer/side_img_01.png"
+                  alt=""
+                />
               </span>
             </div>
           </section>
@@ -111,9 +92,9 @@ class Flavor extends Component {
                   return (
                     <ImgEffecter
                       key={i + 1}
-                      active={`${i + 1 === this.state.count ? "active" : ""}`}
+                      active={i + 1 === count ? "active" : ""}
                       imgSrc={item}
-                      imgClass={this.state.effectIceCream}
+                      imgClass={effectIceCream}
                     />
                   );
                 })}

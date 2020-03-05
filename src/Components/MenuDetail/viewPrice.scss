@@ -22,8 +22,8 @@
     list-style: none;
     li {
       float: left;
-      width: 152px;
-      padding: 14px 0 0 60px;
+      width: 203px;
+      padding: 14px 0 0 72px;
       font-size: 11px;
       color: #aca09a;
       line-height: 16px;
@@ -48,8 +48,6 @@
     .cc2 {
       background: url(https://www.baskinrobbins.co.kr/assets/images/menu/ico_c2.gif)
         no-repeat 3px 17px;
-      padding-left: 67px;
-      width: 145px;
     }
     .cc3 {
       background: url(https://www.baskinrobbins.co.kr/assets/images/menu/ico_c3.gif)
@@ -58,16 +56,8 @@
     .cc4 {
       background: url(https://www.baskinrobbins.co.kr/assets/images/menu/ico_c4.gif)
         no-repeat 3px 0px;
-      padding-left: 67px;
-      width: 145px;
     }
 
-    @for $i from 1 through 4 {
-      .hp#{$i} {
-        padding-left: 78px;
-        width: 125px;
-      }
-    }
     .hp1 {
       background: url(https://www.baskinrobbins.co.kr/assets/images/menu/ico_p1.gif)
         no-repeat 5px 19px;
