@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ViewProduct from "Components/MenuDetail/ViewProduct";
 import ViewPrice from "Components/MenuDetail/ViewPrice";
 import ViewFlavor from "Components/MenuDetail/ViewFlavor";
+import { URL } from "config";
 class Icecream extends Component {
   state = {
     sizes: []
@@ -11,7 +12,7 @@ class Icecream extends Component {
   }
 
   getIcecreamSize() {
-    const url = "http://10.58.2.22:8000/product/size";
+    const url = `${URL}/product/size`;
     fetch(url, {
       method: "GET"
     })

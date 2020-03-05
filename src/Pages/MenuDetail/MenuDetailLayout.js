@@ -5,6 +5,7 @@ import IceCake from "./IceCake";
 import Drink from "./Drink";
 import Coffee from "./Coffee";
 import Dessert from "./Dessert";
+import { URL } from "config";
 class MenuDetailLayout extends Component {
   constructor() {
     super();
@@ -23,7 +24,7 @@ class MenuDetailLayout extends Component {
 
   getProductDetail = () => {
     const id = window.location.search.split("=")[1];
-    const url = `http://10.58.2.22:8000/product/menu/${id}`;
+    const url = `${URL}/product/menu/40`; //${id};
     fetch(url, {
       method: "GET"
     })
@@ -41,7 +42,7 @@ class MenuDetailLayout extends Component {
   };
 
   getProducts = () => {
-    const url = `http://10.58.2.22:8000/product/menu?type=${this.state.item.menu}`;
+    const url = `${URL}/product/menu?type=${this.state.item.menu}`;
     fetch(url, {
       method: "GET"
     })
@@ -54,7 +55,7 @@ class MenuDetailLayout extends Component {
   };
 
   navPrev = id => {
-    const url = `http://10.58.2.22:8000/product/menu/${id}`;
+    const url = `${URL}/product/menu/${id}`;
     fetch(url, {
       method: "GET"
     })
@@ -67,7 +68,7 @@ class MenuDetailLayout extends Component {
   };
 
   navNext = id => {
-    const url = `http://10.58.2.22:8000/product/menu/${id}`;
+    const url = `${URL}/product/menu/${id}`;
     fetch(url, {
       method: "GET"
     })

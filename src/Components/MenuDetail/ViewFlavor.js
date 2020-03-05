@@ -19,34 +19,34 @@ class ViewFlavor extends Component {
   };
 
   render() {
-    const { product, menu: menuID } = this.props;
+    const { product } = this.props;
     return (
       <div className="view-flavor consist">
         <h2>
-          {menuID === 1
+          {product.menu === 1
             ? "추천 플레이버"
-            : menuID === 2
+            : product.menu === 2
             ? "어떤 맛이 들어있을까?"
-            : menuID === 4
+            : product.menu === 4
             ? "배스킨라빈스 커피는 어떻게 만들어졌을까요?"
-            : (menuID === 3 || menuID === 5) && ""}
+            : (product.menu === 3 || product.menu === 5) && ""}
         </h2>
 
-        {menuID === 1 || menuID === 2 ? (
+        {product.menu === 1 || product.menu === 2 ? (
           <div className="list-flavor">
             <ul className="list-wrap">
               {product.flavors.map(item => {
                 return (
                   <li className="list">
                     <div className="title">{item.name}</div>
-                    <img src={item.image} alt=""></img>
+                    <img src={item.thumbnail} alt=""></img>
                   </li>
                 );
               })}
             </ul>
           </div>
         ) : (
-          menuID === 4 && (
+          product.menu === 4 && (
             <div className="view-coffee">
               <div className="hot">
                 <img
