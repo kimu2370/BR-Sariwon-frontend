@@ -94,7 +94,7 @@ class ViewFlavor extends Component {
                           return (
                             <li className="wrap-li">
                               <figure>
-                                <img src={item}></img>
+                                <img src={item} alt=""></img>
                               </figure>
                             </li>
                           );

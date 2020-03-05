@@ -16,14 +16,32 @@ class MenuDetailLayout extends Component {
   }
 
   componentDidMount() {
-    this.getProducts();
     this.getProductDetail();
   }
 
   //config url 과 window.location.search 사용하여 수정해야함.
 
+  getProductDetail = () => {
+    const id = window.location.search.split("=")[1];
+    const url = `http://10.58.2.22:8000/product/menu/${id}`;
+    fetch(url, {
+      method: "GET"
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.setState(
+          {
+            item: res.product[0]
+          },
+          () => {
+            this.getProducts();
+          }
+        );
+      });
+  };
+
   getProducts = () => {
-    const url = "http://10.58.2.22:8000/product/menu?type=2";
+    const url = `http://10.58.2.22:8000/product/menu?type=${this.state.item.menu}`;
     fetch(url, {
       method: "GET"
     })
@@ -31,20 +49,6 @@ class MenuDetailLayout extends Component {
       .then(res => {
         this.setState({
           list: res.products
-        });
-      });
-  };
-
-  getProductDetail = () => {
-    // console.log(this.props.location.pathname);
-    const url = "http://10.58.2.22:8000/product/menu/40";
-    fetch(url, {
-      method: "GET"
-    })
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          item: res.product[0]
         });
       });
   };
