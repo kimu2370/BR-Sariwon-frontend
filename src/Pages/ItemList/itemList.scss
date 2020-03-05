@@ -1,0 +1,42 @@
+.item-list {
+  height: 100vh;
+
+  .header {
+    min-width: 1800px;
+    margin: 0 auto;
+    .header-banner {
+      height: 310px;
+      background: url(http://www.baskinrobbins.co.kr/asset/images/menu/bg_icecream_menu.gif);
+      background-position: 50% 0;
+    }
+  }
+
+  .line-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    .left-spoon {
+      width: 36px;
+      height: 11px;
+      background: url(http://www.baskinrobbins.co.kr/assets/images/common/icon_title_1.png);
+    }
+
+    img {
+      margin: 0 20px;
+    }
+
+    .right-spoon {
+      width: 36px;
+      height: 11px;
+      background: url(http://www.baskinrobbins.co.kr/assets/images/common/icon_title_2.png);
+    }
+  }
+
+  .list {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
