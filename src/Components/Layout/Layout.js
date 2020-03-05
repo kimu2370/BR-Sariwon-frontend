@@ -4,7 +4,7 @@ class Layout extends Component {
   render() {
     return (
       <>
-        <Nav />
+        {/* <Nav /> */}
         {this.props.children}
         {/* <Footer /> */}
       </>
