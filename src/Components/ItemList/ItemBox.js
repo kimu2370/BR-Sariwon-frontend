@@ -17,7 +17,7 @@ class ItemBox extends Component {
               <span>{this.props.name}</span>
             </div>
             <span className="item-img">
-              <img src={this.props.image} alt="" />
+              <img src={this.props.thumbnail} alt="" />
             </span>
           </div>
           <div className="item-middle">

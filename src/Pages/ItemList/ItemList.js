@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import ItemBox from "Components/ItemList/ItemBox";
+import IMG from "Components/ItemList/Data/Data";
 import "./itemList.scss";
 
 export class ItemList extends Component {
@@ -20,7 +21,9 @@ export class ItemList extends Component {
       method: "GET"
     })
       .then(response => response.json())
-      .then(response => this.setState({ data: response.products }));
+      .then(response =>
+        this.setState({ data: response.products, menuType: menuType })
+      );
     //   .then(response => console.log("fetch:", this.state.data));
   };
 
@@ -34,18 +37,21 @@ export class ItemList extends Component {
   };
 
   render() {
+    const menuType = this.props.location.search.split("=")[1];
     // console.log(this.props.location.search);
+    console.log(typeof menuType);
     return (
       <div className="item-list">
         <header className="header">
-          <div className="header-banner"></div>
+          <img
+            className="header-benner"
+            src={IMG[menuType - 1].benner}
+            alt=""
+          />
         </header>
         <div className="line-title">
           <span className="left-spoon" />
-          <img
-            src="http://www.baskinrobbins.co.kr/assets/images/menu/h_title_A.png"
-            alt="icecream"
-          />
+          <img src={IMG[menuType - 1].title} alt="icecream" />
           <span className="right-spoon" />
         </div>
         {/* menu-list */}
@@ -56,7 +62,7 @@ export class ItemList extends Component {
                 <ItemBox
                   id={item.id}
                   name={item.name}
-                  image={item.image}
+                  thumbnail={item.thumbnail}
                   tags1={item.tags.slice(0, 1)}
                   tags2={item.tags.slice(1, 2)}
                 />
