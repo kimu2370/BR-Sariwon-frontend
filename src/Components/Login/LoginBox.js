@@ -39,6 +39,10 @@ class LoginBox extends Component {
     }
   };
 
+  handleSignup = () => {
+    this.props.history.push("/signup");
+  };
+
   loginFetch = () => {
     fetch("http://10.58.2.22:8000/account/sign-in", {
       method: "POST",
@@ -100,9 +104,9 @@ class LoginBox extends Component {
           >
             비밀번호재발급
           </a>
-          <a className="sing-up" href="/signup" target="blank">
+          <div className="sing-up" onClick={this.handleSignup}>
             회원가입
-          </a>
+          </div>
         </div>
       </div>
     );
