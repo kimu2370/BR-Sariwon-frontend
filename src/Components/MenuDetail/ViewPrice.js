@@ -16,7 +16,7 @@ class ViewPrice extends Component {
             {sizes.map((item, i) => {
               return (
                 i < 4 && (
-                  <li className={`cc${i + 1}`}>
+                  <li key={i} className={`cc${i + 1}`}>
                     <div className="title">{item.name}</div>
                     <div>{item.description}</div>
                     <div className="price">{`${parseInt(
@@ -39,7 +39,7 @@ class ViewPrice extends Component {
             {sizes.map((item, i) => {
               return (
                 i > 3 && (
-                  <li className={`hp${i - 3}`}>
+                  <li key={i} className={`hp${i - 3}`}>
                     <div className="title">{item.name}</div>
                     <div className="description">{item.description}</div>
                     <div className="price">{`${parseInt(

@@ -35,9 +35,13 @@ class ViewFlavor extends Component {
         {product.menu === 1 || product.menu === 2 ? (
           <div className="list-flavor">
             <ul className="list-wrap">
-              {product.flavors.map(item => {
+              {product.flavors.map((item, i) => {
                 return (
-                  <li className="list">
+                  <li
+                    key={i}
+                    className="list"
+                    onClick={() => this.props.moveFlavorDetail(item.name)}
+                  >
                     <div className="title">{item.name}</div>
                     <img src={item.thumbnail} alt=""></img>
                   </li>

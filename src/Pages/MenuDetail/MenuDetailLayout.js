@@ -24,8 +24,8 @@ class MenuDetailLayout extends Component {
 
   getProductDetail = () => {
     const id = window.location.search.split("=")[1];
-    const url = `${URL}/product/menu/40`; //${id};
-    fetch(url, {
+    const detailURL = `${URL}/product/menu/${id}`;
+    fetch(detailURL, {
       method: "GET"
     })
       .then(res => res.json())
@@ -42,8 +42,8 @@ class MenuDetailLayout extends Component {
   };
 
   getProducts = () => {
-    const url = `${URL}/product/menu?type=${this.state.item.menu}`;
-    fetch(url, {
+    const listURL = `${URL}/product/menu?type=${this.state.item.menu}`;
+    fetch(listURL, {
       method: "GET"
     })
       .then(res => res.json())
@@ -55,8 +55,8 @@ class MenuDetailLayout extends Component {
   };
 
   navPrev = id => {
-    const url = `${URL}/product/menu/${id}`;
-    fetch(url, {
+    const detailURL = `${URL}/product/menu/${id}`;
+    fetch(detailURL, {
       method: "GET"
     })
       .then(res => res.json())
@@ -68,8 +68,24 @@ class MenuDetailLayout extends Component {
   };
 
   navNext = id => {
-    const url = `${URL}/product/menu/${id}`;
-    fetch(url, {
+    const detailURL = `${URL}/product/menu/${id}`;
+    fetch(detailURL, {
+      method: "GET"
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          item: res.product[0]
+        });
+      });
+  };
+
+  moveFlavorDetail = name => {
+    const flavor = this.state.list.filter(
+      item => item.name === name && item.id
+    )[0];
+    const detailURL = `${URL}/product/menu/${flavor.id}`;
+    fetch(detailURL, {
       method: "GET"
     })
       .then(res => res.json())
@@ -91,7 +107,10 @@ class MenuDetailLayout extends Component {
         productID={product.id}
       >
         {product && product.menu === 1 ? (
-          <Icecream product={product} />
+          <Icecream
+            product={product}
+            moveFlavorDetail={this.moveFlavorDetail}
+          />
         ) : product.menu === 2 ? (
           <IceCake product={product} />
         ) : product.menu === 3 ? (

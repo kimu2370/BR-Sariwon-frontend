@@ -23,6 +23,7 @@ class Icecream extends Component {
         });
       });
   }
+
   render() {
     const product = this.props.product;
     const sizes = this.state.sizes;
@@ -30,7 +31,10 @@ class Icecream extends Component {
       <>
         <ViewProduct product={product} menuID={product.menu} />
         <ViewPrice sizes={sizes} />
-        <ViewFlavor product={product} />
+        <ViewFlavor
+          product={product}
+          moveFlavorDetail={this.props.moveFlavorDetail}
+        />
       </>
     );
   }
