@@ -4,6 +4,9 @@ import "Components/Nav/extend-bottom-button.scss";
 
 class ExtendBottomButton extends Component {
   handleClick = () => {
+    if (this.props.title === "매장 찾기") {
+      this.props.history.push("/findstore");
+    }
     if (this.props.title === "아이스크림") {
       this.props.history.push("/itemlist?type=1");
     } else if (this.props.title === "아이스크림 케이크") {
@@ -16,9 +19,10 @@ class ExtendBottomButton extends Component {
       this.props.history.push("/itemlist?type=5");
     }
   };
+
   render() {
     return (
-      <li>
+      <li className="ExtendBottomButton">
         <span onClick={this.handleClick}>{this.props.title}</span>
       </li>
     );

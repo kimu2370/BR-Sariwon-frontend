@@ -2,7 +2,7 @@
 
 .modal {
   display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
+  position: absolute; /* Stay in place */
   z-index: 10000; /* Sit on top */
   top: 0;
   width: 100%; /* Full width */
@@ -11,10 +11,14 @@
   margin-top: 185px;
   //background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.2); /* Black w/ opacity */
-  animation-name: animateopacity;
+  animation-name: animatemodalopacity;
   animation-duration: 0.6s;
   
-  
+      
+  @keyframes animatemodalopacity {
+    from {opacity: 0;}
+    to {opacity: 1;}
+    }
   .modal-content-wrapper {
     background-color: #fefefe;
     position: relative;
@@ -22,134 +26,134 @@
     width: 100%;
     height: 223px;
     // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
+    animation-name: animatemodaltop;
     animation-duration: 0.6s;
     padding: 25px 0;
-  }
-  
-  /* Add Animation */
-  @keyframes animatetop {
-  from {top: -100px; opacity: 0;}
-  to {top: -0px; opacity: 1;}
-  }
-  
-  @keyframes animateopacity {
-  from {opacity: 0;}
-  to {opacity: 1;}
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    margin: 0 auto;
-      width: 1200px;
-      
-    }
-  
-  
-  .product-name-wrapper {
-    display: flex;
-  
-    .product-title {
-      width: 88px;
-      padding-top: 8px;
-      color: #2f231c;
-      font-size: 14px;
-    }
+   /* Add Animation */
+    @keyframes animatemodaltop {
+      from {top: -100px; opacity: 0;}
+      to {top: -0px; opacity: 1;}
+      }
+
+    form {
+/* Modal Content */
+.modal-content {
+  margin: 0 auto;
+    width: 1200px;
     
-  
-    .product-search-input {
-      width: 260px;
-      height: 32px;
-      box-sizing: border-box;
-      background-color: #efefef;
-      border: 0;
-      margin-left: 20px;
-      margin-right: 50px;
-    }
+  }
+
+
+.product-name-wrapper {
+  display: flex;
+
+  .product-title {
+    width: 88px;
+    padding-top: 8px;
+    color: #2f231c;
+    font-size: 14px;
   }
   
-  .modal-content-top-wrapper {
-    display: flex;
+
+  .product-search-input {
+    width: 260px;
+    height: 32px;
+    box-sizing: border-box;
+    background-color: #efefef;
+    border: 0;
+    margin-left: 20px;
+    margin-right: 50px;
+    padding-left: 10px;
   }
-  
-  .hashtag-wrapper {
-    display: flex;
-  
-    .hashtag-title {
-      width: 89px;
-      height: 61px;
-      padding: 8px;
-      color: #2f231c;
-      font-size: 14px;
-    }
-  
-    .hashtag-input {
-      box-sizing: border-box;
-      width: 540px;
-      height: 32px;
-      padding: 8px 1px 8px 10px;
-      margin: 0;
-      border: 1;
-      background-color: #efefef;
-      border: 0;
-    }
-  
-    .hashtag-inside-wrapper {
-      display: flex;
-      margin: 10px 0 0 14px;
-  
-      .hashtag-favorite-title {
-        color: #9c9c9c;
-        margin-right: 10px;
-        font-size: 12px;
-        font-family: "Nanum Barun Gothic", "나눔고딕", "NanumGothic", "돋움", "Dotum", sans-serif;
-      }
-  
-      .hashtag-name {
-        color: #ff7c98;
-        cursor: pointer;
-        font-family: "Nanum Barun Gothic", "나눔고딕", "NanumGothic", "돋움", "Dotum";
-        margin-right: 6px;
-        font-size: 13px;
-      }
-    }
-  
+}
+
+.modal-content-top-wrapper {
+  display: flex;
+}
+
+.hashtag-wrapper {
+  display: flex;
+
+  .hashtag-title {
+    width: 89px;
+    height: 61px;
+    padding: 8px;
+    color: #2f231c;
+    font-size: 14px;
   }
-  
-  .allergic-wrapper {
+
+  .hashtag-input {
+    box-sizing: border-box;
+    width: 540px;
+    height: 32px;
+    padding: 8px 1px 8px 10px;
+    margin: 0;
+    background-color: #efefef;
+    border: 0;
+    color: $br-color
+  }
+
+  .hashtag-inside-wrapper {
     display: flex;
-  
-    .allergic-title {
-      font-size: 14px;
-      color: #2f231c;
+    margin: 10px 0 0 14px;
+
+    .hashtag-favorite-title {
+      color: #9c9c9c;
       margin-right: 10px;
-      
+      font-size: 12px;
     }
-    .allergic-check-area {
-      height: 50px;
-      width: 350px;
-      display: flex;
-      flex-wrap: wrap;
+
+    .hashtag-name {
+      color: #ff7c98;
+      cursor: pointer;
+      margin-right: 6px;
+      font-size: 13px;
     }
-    
+  }
+
+}
+
+.allergic-wrapper {
+  display: flex;
+
+  .allergic-title {
+    font-size: 14px;
+    color: #2f231c;
+    margin-right: 10px;
     
   }
-  
-  
-  .modal-submit-wrapper {
-    width: 100%;
+  .allergic-check-area {
+    height: 50px;
+    width: 350px;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+  }
   
-    .modal-submit-button {
-      width: 147px;
-      height: 37px;
-      background-color: $br-color;
-      color: #ffffff;
-      border-radius: 18px;
-      font-size: 15px;
+  
+}
+
+
+.modal-submit-wrapper {
+  display: flex;
+  width: 100%;
+  
+
+  .modal-submit-button {
+    margin: 0 auto;
+    width: 147px;
+    height: 37px;
+    background-color: $br-color;
+    color: #ffffff;
+    border-radius: 18px;
+    font-size: 15px;
+  }
+}
     }
   }
+  
+
+  
+  
   
 
 }

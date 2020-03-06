@@ -13,9 +13,7 @@ class SelectBox extends Component {
   };
 
   componentDidMount() {
-    // document.onclick = e => {
-    //   console.log("e: ", e.target.className);
-    // };
+    console.log("componentDidMount()");
   }
 
   // 목록의 아이템 클릭
@@ -23,8 +21,10 @@ class SelectBox extends Component {
     this.setState({ selected: false, text: name });
     if (this.props.type === "city") {
       this.props.changeSelected(id, name, "city");
-    } else {
+    } else if (this.props.type === "district") {
       this.props.changeSelected(id, name, "district");
+    } else if (this.props.type === "product") {
+      this.props.changeSelected(id, name, "product");
     }
   };
 
@@ -50,11 +50,11 @@ class SelectBox extends Component {
               }}
             >
               <input type="radio" className="radio" name="category" />
-              <label className="option-name">구/군 선택</label>
+              <label className="option-name">{this.props.defaultText}</label>
             </div>
-            {list.map(item => (
+            {list.map((item, i) => (
               <div
-                key={item.id}
+                key={i}
                 style={{ width: `${widthSize}px`, height: `${heightSize}px` }}
                 className="option"
                 onClick={e => {

@@ -27,7 +27,7 @@
     z-index: 10023423432432423432324001; /* Sit on top */
     top: 0;
     display: none;
-    right: 500px;
+    right: 30%;
     animation-name: animatetop;
     animation-duration: 0.5s;
 
@@ -99,21 +99,115 @@
                         color: #a79c8e;
                         background: url(/assets/images/store/bu_store_list.png) 0 6px no-repeat;
                     }
-                    dd {
+                    .bris-list {
                         width: 100%;
                         color: #a79c8e;
                         padding-bottom: 10px;
                         font-size: 11px;
+                        
+                       ul {
+                        display: flex;
+                        margin-left: -10px;
+                        li {
+                            padding: 0 10px;
 
-                        span {
-                            display: block;
-                            height: 33px;
-                            padding-left: 26px;
-                            background-image: url(http://www.baskinrobbins.co.kr/assets/images/store/ico_happypoint.png);
-                            background-position: left top 5px ;
-                            background-repeat: no-repeat;
-                            line-height: 32px;
+                            .C {
+                                display: block;
+                                padding-left: 31px;
+                                height: 33px;
+                                background-position: left top 5px ;
+                                background-repeat: no-repeat;
+                                line-height: 32px;
+                                background-image: url(https://www.baskinrobbins.co.kr/assets/images/store/ico_cafebris_breeze.png)
+                            }
+
+                            .E {
+                                display: block;
+                                padding-left: 31px;
+                                height: 33px;
+                                background-position: left top 1px ;
+                                background-repeat: no-repeat;
+                                line-height: 32px;
+                                background-image: url(https://www.baskinrobbins.co.kr/assets/images/store/ico_cafebris_sunny.png)
+                            }
+                            
                         }
+                       }
+                    }
+
+
+                    .service-list {
+                        width: 100%;
+                        color: #a79c8e;
+                        padding-bottom: 10px;
+                        font-size: 11px;
+                        
+                       ul {
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin-left: -10px;
+                        width: 310px;
+                        height: 99px;
+                        li {
+                            padding: 0 10px;
+
+                            .C {
+                                display: block;
+                                padding-left: 26px;
+                                height: 33px;
+                                width: 121px;
+                                background-position: left top 5px ;
+                                background-repeat: no-repeat;
+                                line-height: 32px;
+                                background-image: url(https://www.baskinrobbins.co.kr/assets/images/store/ico_happypoint.png)
+                            }
+
+                            .D {
+                                display: block;
+                                padding-left: 28px;
+                                height: 33px;
+                                width: 94px;
+                                background-position: left top 5px ;
+                                background-repeat: no-repeat;
+                                line-height: 32px;
+                                background-image: url(https://www.baskinrobbins.co.kr/assets/images/store/ico_happyorder.png)
+                            }
+
+                            .A {
+                                display: block;
+                                padding-left: 38px;
+                                height: 33px;
+                                width: 123px;
+                                background-position: left top 5px;
+                                background-repeat: no-repeat;
+                                line-height: 32px;
+                                background-image: url(https://www.baskinrobbins.co.kr/assets/images/store/ico_delivery.png)
+                            }
+
+                            .E {
+                                display: block;
+                                padding-left: 28px;
+                                height: 33px;
+                                width: 85px;
+                                background-position: left top 5px ;
+                                background-repeat: no-repeat;
+                                line-height: 32px;
+                                background-image: url(https://www.baskinrobbins.co.kr/assets/images/store/ico_baemin.png)
+                            }
+
+                            .F {
+                                width: 75px;
+                                display: block;
+                                padding-left: 38px;
+                                height: 33px;
+                                background-position: left top 5px ;
+                                background-repeat: no-repeat;
+                                line-height: 32px;
+                                background-image: url(https://www.baskinrobbins.co.kr/assets/images/store/ico_yogiyo.png)
+                            }
+                        }
+                       }
+                        
                     }
                 }
                 
@@ -124,7 +218,7 @@
     .close {
         position: fixed;
         top: 80px;
-        right: 390px;
+        right: 23%;
     }
 }
 .wrap {

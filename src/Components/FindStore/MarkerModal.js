@@ -1,14 +1,75 @@
 import React, { Component } from "react";
+import { URL } from "config";
 import "Components/FindStore/markerModal.scss";
 
 /*
  * 마커 모달
  */
 class MarkerModal extends Component {
-  render() {
-    const { modalClicked } = this.props;
-    console.log("MarkerModal modalClicked: ", modalClicked);
+  constructor(prop) {
+    super(prop);
+    this.state = {
+      name: "",
+      address: "",
+      phone_number: "",
+      business_time: "",
+      service_info: [],
+      store_info: [],
+      cnt: this.props.cnt
+    };
+  }
 
+  componentDidUpdate = prevProps => {
+    // console.log(`modal request address: ${URL}/store/${this.props.modalId}`);
+    // console.log("modalClicked: ", this.props.modalClicked);
+    // console.log("cnt: ", this.state.cnt);
+    if (prevProps !== this.props) {
+      this.fetchStoreDetail();
+    }
+  };
+
+  fetchStoreDetail() {
+    fetch(`${URL}/store/${this.props.modalId}`, {
+      method: "GET"
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log("modal detail data: ", response.store[0]);
+        const {
+          name,
+          phone_number,
+          business_time,
+          service_info,
+          store_info
+        } = response.store[0];
+
+        // 도/시 구/군 도로명 합치기
+        let complete_address = `${response.store[0].city} ${response.store[0].district} ${response.store[0].street}`;
+        this.setState({
+          name: name,
+          phone_number: phone_number,
+          business_time: business_time,
+          service_info: service_info,
+          store_info: store_info,
+          address: complete_address
+        });
+      });
+  }
+
+  render() {
+    console.log("store??? ", this.name);
+    const { modalClicked, modalId } = this.props;
+
+    const {
+      name,
+      address,
+      phone_number,
+      business_time,
+      service_info,
+      store_info
+    } = this.state;
+    console.log("service_info: ", service_info);
+    console.log("store_info: ", store_info);
     return (
       <>
         <div
@@ -17,9 +78,9 @@ class MarkerModal extends Component {
         <div className={`container${modalClicked ? " on" : ""}`}>
           <div className="content">
             <header className="header">
-              <h3>매장 이름</h3>
+              <h3>{name}</h3>
             </header>
-            <body className="body">
+            <div className="body">
               <div className="img">
                 <img
                   src="http://www.baskinrobbins.co.kr/assets/images/dummy/img_mybr_store.png"
@@ -29,41 +90,54 @@ class MarkerModal extends Component {
               <dl className="info">
                 <div className="info-inner-wrapper">
                   <dt>매장주소</dt>
-                  <dd>서울 서초구 남부순환로 지하 2585 (서초동, 양재역)</dd>
+                  <dd>{address}</dd>
                 </div>
                 <div className="info-inner-wrapper">
                   <dt>전화번호</dt>
-                  <dd>02-529-3120</dd>
+                  <dd>{phone_number}</dd>
                 </div>
 
                 <div className="info-inner-wrapper">
-                  <dt>운영시간</dt>
-                  <dd>AM 10~PM 11</dd>
+                  <dt>운영시간2</dt>
+                  <dd>{business_time}</dd>
                 </div>
 
                 <div className="info-service-wrapper">
                   <dt>Cafe Bris</dt>
-                  <dd>
+                  <dd className="bris-list">
                     <ul>
-                      <li>
-                        <span>브리즈</span>
-                      </li>
+                      {store_info.map(item => (
+                        <li>
+                          <span className={item.code === "C" ? "C" : "E"}>
+                            {item.name}
+                          </span>
+                        </li>
+                      ))}
                     </ul>
                   </dd>
                 </div>
 
                 <div className="info-service-wrapper">
-                  <dt>매장 서비스</dt>
-                  <dd>
+                  <dt className="service-title">매장 서비스</dt>
+                  <dd className="service-list">
                     <ul>
-                      <li>
-                        <span>해피포인트 적립가능</span>
-                      </li>
+                      {service_info.map(item => {
+                        if (
+                          item.name !== "칭찬점포" &&
+                          item.name !== "고객센터"
+                        ) {
+                          return (
+                            <li>
+                              <span className={item.code}>{item.name}</span>
+                            </li>
+                          );
+                        }
+                      })}
                     </ul>
                   </dd>
                 </div>
               </dl>
-            </body>
+            </div>
             <div className="wrap">
               <ul>
                 <li>
@@ -93,6 +167,34 @@ class MarkerModal extends Component {
                     </dd>
                   </dl>
                 </li>
+                {service_info.map(item => {
+                  if (item.code === "D" || item.code === "A") {
+                    return (
+                      <li>
+                        <dl>
+                          <dt>
+                            <img src={`${item.thumbnail_url}`} alt="" />
+                          </dt>
+                          <dd>{item.description}</dd>
+                        </dl>
+                      </li>
+                    );
+                  }
+                })}
+                {store_info.map(item => {
+                  if (item.code === "C") {
+                    return (
+                      <li>
+                        <dl>
+                          <dt>
+                            <img src={`${item.thumbnail_url}`} alt="" />
+                          </dt>
+                          <dd>{item.description}</dd>
+                        </dl>
+                      </li>
+                    );
+                  }
+                })}
               </ul>
             </div>
           </div>

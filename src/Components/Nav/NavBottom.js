@@ -38,8 +38,11 @@ export class NavBottom extends Component {
     token ? this.setState({ logged: true }) : this.setState({ logged: false });
   };
 
+  buttonClick = () => {
+    this.props.history.push("/");
+  };
+
   render() {
-    console.log("hover: ", this.state.isHover);
     return (
       <div className="menu-wrapper">
         <div className="menu-area">
@@ -75,7 +78,9 @@ export class NavBottom extends Component {
             }}
           >
             <li>
-              <div className="right-button-flavor">FLAVOR OF THE MONTH</div>
+              <div onClick={this.buttonClick} className="right-button-flavor">
+                FLAVOR OF THE MONTH
+              </div>
               <a href="1">
                 <img
                   className={`monthly-icecream ${
@@ -96,7 +101,7 @@ export class NavBottom extends Component {
                 }`}
               >
                 {Data.menu.map(button => (
-                  <ExtendBottomButton title={button.title} />
+                  <ExtendBottomButton key={button.title} title={button.title} />
                 ))}
               </ul>
             </li>
@@ -108,7 +113,7 @@ export class NavBottom extends Component {
                 }`}
               >
                 {Data.event.map(button => (
-                  <ExtendBottomButton title={button.title} />
+                  <ExtendBottomButton key={button.title} title={button.title} />
                 ))}
               </ul>
             </li>
@@ -120,7 +125,7 @@ export class NavBottom extends Component {
                 }`}
               >
                 {Data.store.map(button => (
-                  <ExtendBottomButton title={button.title} />
+                  <ExtendBottomButton key={button.title} title={button.title} />
                 ))}
               </ul>
             </li>
@@ -132,7 +137,7 @@ export class NavBottom extends Component {
                 }`}
               >
                 {Data.about.map(button => (
-                  <ExtendBottomButton title={button.title} />
+                  <ExtendBottomButton key={button.title} title={button.title} />
                 ))}
               </ul>
             </li>

@@ -27,7 +27,9 @@ class FindStore extends Component {
       address: "",
       phone: "",
       businessTime: "",
-      modalClicked: false
+      modalClicked: false,
+
+      modalId: ""
     };
     this.marker = "";
     // 마커이미지의 크기
@@ -104,15 +106,16 @@ class FindStore extends Component {
             i // 마커에 클릭이벤트를 등록합니다
           ) => {
             const {
+              id,
               name,
-              city,
-              district,
-              street,
+              city__name,
+              district__name,
+              street_name,
               phone_number,
-              business_time
+              business_time__time
             } = this.state.storeList[i];
-            const address = `${city} ${district} ${street}`;
-            console.log("storelist:: ", name);
+            const address = `${city__name} ${district__name} ${street_name}`;
+            // console.log("storelist:: ", name);
 
             // 마커 위에 커스텀오버레이를 표시
             let content = `
@@ -127,7 +130,7 @@ class FindStore extends Component {
                     <div class="th">연락처</div><div class="td">${phone_number}</div>
                   </div>
                   <div class="wrapper">
-                    <div class="th">운영시간</div><div class="td">${business_time}</div>
+                    <div class="th">운영시간</div><div class="td">${business_time__time}</div>
                   </div>
                 </div>
               <div class="bottom" onClick="openModal()">
@@ -144,6 +147,7 @@ class FindStore extends Component {
               yAnchor: 1.15
             });
 
+            // 이전 팝업
             this.overlays.push(overlay);
 
             // 새로운 마커 클릭 시 이전 마커 팝업창 지우기 위해 이전 오버레이를 저장
@@ -154,6 +158,7 @@ class FindStore extends Component {
 
             //마커를 클릭했을 때 커스텀 오버레이를 표시합니다
             window.kakao.maps.event.addListener(marker, "click", () => {
+              console.log("marker: ", marker);
               // 이전 팝업 삭제
               this.lastOverlay.setMap(null);
               // 커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
@@ -164,8 +169,17 @@ class FindStore extends Component {
               }
               // 매장 상세 모달 창
               const openModal = () => {
-                this.setState({ modalClicked: !this.state.modalClicked }, () =>
-                  console.log("openModal(): ", this.state.modalClicked)
+                this.setState(
+                  { modalClicked: !this.state.modalClicked, modalId: id },
+                  () => {
+                    console.log("store detail id: ", this.state.modalId);
+                    fetch(`${URL}/store/${this.state.modalId}`, {
+                      method: "GET"
+                    })
+                      .then(response => response.json())
+                      .then(response => {})
+                      .then(response => console.log(response));
+                  }
                 );
               };
 
@@ -191,7 +205,10 @@ class FindStore extends Component {
   onSubmit = (city, district, name) => {
     // 이전의 커스텀 오버레이(팝업창) 삭제
     this.overlays = [];
-    this.lastOverlay.setMap(null);
+    if (this.lastOverlay != null) {
+      this.lastOverlay.setMap(null);
+    }
+
     this.lastOverlay = null;
 
     let cityResult = city ? `city=${city}` : "";
@@ -228,14 +245,15 @@ class FindStore extends Component {
             i // 마커에 클릭이벤트를 등록합니다
           ) => {
             const {
+              id,
               name,
-              city,
-              district,
-              street,
+              city__name,
+              district__name,
+              street_name,
               phone_number,
-              business_time
+              business_time__time
             } = this.state.storeList[i];
-            const address = `${city} ${district} ${street}`;
+            const address = `${city__name} ${district__name} ${street_name}`;
             console.log("storelist:: ", name);
 
             // 마커 위에 커스텀오버레이를 표시
@@ -251,7 +269,7 @@ class FindStore extends Component {
                     <div class="th">연락처</div><div class="td">${phone_number}</div>
                   </div>
                   <div class="wrapper">
-                    <div class="th">운영시간</div><div class="td">${business_time}</div>
+                    <div class="th">운영시간</div><div class="td">${business_time__time}</div>
                   </div>
                 </div>
               <div class="bottom" onClick="openModal()">
@@ -289,8 +307,17 @@ class FindStore extends Component {
 
               // 매장 상세 모달 창
               const openModal = () => {
-                this.setState({ modalClicked: !this.state.modalClicked }, () =>
-                  console.log("openModal(): ", this.state.modalClicked)
+                this.setState(
+                  { modalClicked: !this.state.modalClicked, modalId: id },
+                  () => {
+                    console.log("store detail id: ", this.state.modalId);
+                    fetch(`${URL}/store/${this.state.modalId}`, {
+                      method: "GET"
+                    })
+                      .then(response => response.json())
+                      .then(response => {})
+                      .then(response => console.log(response));
+                  }
                 );
               };
 
@@ -359,7 +386,11 @@ class FindStore extends Component {
           storeAmount={this.state.storeAmount}
           moveStore={this.moveStore}
         />
-        <MarkerModal modalClicked={modalClicked} closeModal={this.closeModal} />
+        <MarkerModal
+          modalClicked={modalClicked}
+          closeModal={this.closeModal}
+          modalId={this.state.modalId}
+        />
       </div>
     );
   }
