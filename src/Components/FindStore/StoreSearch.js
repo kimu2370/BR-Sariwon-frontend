@@ -192,7 +192,7 @@ export default class StoreSearch extends Component {
               <br />
               자주가는 매장 정보를 확인 하실 수 있습니다.
             </p>
-            <a href="1">LOG IN</a>
+            <a href="#">LOG IN</a>
           </div>
         )}
 
@@ -201,15 +201,15 @@ export default class StoreSearch extends Component {
           <div className="scroll">
             <ul>
               {this.props.storeList.map((item, i) => {
-                let address = `${item.city} ${item.district} ${item.street}`;
+                let address = `${item.city__name} ${item.district__name} ${item.street_name}`;
                 return (
                   <Store
-                    key={item.store_code}
+                    key={i}
                     number={i + 1}
                     name={item.name}
                     storeCode={item.store_code}
                     address={address}
-                    businessTime={item.business_time}
+                    businessTime={item.business_time__time}
                     phoneNumber={item.phone_number}
                     lat={item.latitude}
                     lng={item.longitude}
