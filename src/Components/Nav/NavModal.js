@@ -33,12 +33,12 @@ class NavModal extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        const { menu, allergy, tag } = response.serch_data;
-        console.log("response: ", tag);
+        const { menu, allergy, tags } = response.search_data;
+        console.log("searchbar response: ", tags);
         this.setState({
           menu: menu,
           allergy: allergy,
-          tag: tag
+          tag: tags
         });
       })
       .then(response => console.log(response));
@@ -99,7 +99,7 @@ class NavModal extends Component {
       .then(response => {
         console.log("search response: ", response);
         this.props.history.push(
-          `/menu?type=6&${category}${name}${tag}${allergy}`
+          `/itemlist?type=6&${category}${name}${tag}${allergy}`
         );
       })
       .then(response => console.log("search response:: ", response));

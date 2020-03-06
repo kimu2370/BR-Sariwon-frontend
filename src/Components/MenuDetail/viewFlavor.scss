@@ -4,8 +4,8 @@
   height: auto;
   overflow: auto;
 }
+
 .view-flavor {
-  height: 260px;
   overflow: hidden;
   h2 {
     font-size: 17px;
@@ -20,12 +20,15 @@
     text-align: center;
   }
   .list-wrap {
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 0;
     border: none;
     .list {
-      float: left;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      padding-top: 20px;
       width: 179px;
       height: 179px;
       position: relative;
@@ -35,12 +38,44 @@
         50% 120px no-repeat;
       background-size: 35px auto;
       border: 1px solid #e3e7e7;
+      .title {
+        color: #94927b;
+        font-size: 13px;
+      }
       img {
         width: 112px;
         position: absolute;
         left: 50%;
         margin-left: -56px;
         top: 57px;
+      }
+    }
+  }
+}
+.view-coffee {
+  .hot,
+  .ice {
+    text-align: center;
+    margin-top: 65px;
+    .hot-img,
+    .ice-img {
+      margin-bottom: 20px;
+    }
+    .coffee-list {
+      overflow: hidden;
+      position: relative;
+      min-width: 900px;
+      height: 200px;
+      .list-wrap {
+        width: 1435px;
+        position: absolute;
+        left: 0px;
+        ul {
+          display: flex;
+          li {
+            margin-right: 3px;
+          }
+        }
       }
     }
   }

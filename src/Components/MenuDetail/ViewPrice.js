@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "Components/MenuDetail/viewPrice.scss";
 class ViewPrice extends Component {
   render() {
+    const { sizes } = this.props;
     return (
       <div className="view-price">
         <section className="conecup">
@@ -12,13 +13,15 @@ class ViewPrice extends Component {
             ></img>
           </h2>
           <ul>
-            {this.props.sizes.map((item, i) => {
+            {sizes.map((item, i) => {
               return (
                 i < 4 && (
-                  <li className={`cc${i + 1}`}>
+                  <li key={i} className={`cc${i + 1}`}>
                     <div className="title">{item.name}</div>
                     <div>{item.description}</div>
-                    <div className="price">{item.price}</div>
+                    <div className="price">{`${parseInt(
+                      item.price
+                    ).toLocaleString()}원`}</div>
                   </li>
                 )
               );
@@ -33,13 +36,15 @@ class ViewPrice extends Component {
             ></img>
           </h2>
           <ul>
-            {this.props.sizes.map((item, i) => {
+            {sizes.map((item, i) => {
               return (
                 i > 3 && (
-                  <li className={`hp${i - 3}`}>
+                  <li key={i} className={`hp${i - 3}`}>
                     <div className="title">{item.name}</div>
-                    <div>{item.description}</div>
-                    <div className="price">{item.price}</div>
+                    <div className="description">{item.description}</div>
+                    <div className="price">{`${parseInt(
+                      item.price
+                    ).toLocaleString()}원`}</div>
                   </li>
                 )
               );

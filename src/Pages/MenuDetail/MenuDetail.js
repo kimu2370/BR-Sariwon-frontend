@@ -1,66 +1,43 @@
 import React, { Component } from "react";
-// import Layout from "Pages/Layout/Layout";
-import ViewProduct from "Components/MenuDetail/ViewProduct";
-import ViewPrice from "Components/MenuDetail/ViewPrice";
-import ViewFlavor from "Components/MenuDetail/ViewFlavor";
 import PageMoveButton from "Components/MenuDetail/PageMoveButton";
 import "Pages/MenuDetail/menuDetail.scss";
 class MenuDetail extends Component {
-  constructor() {
-    super();
-    this.state = {
-      product: {},
-      sizes: []
-    };
-  }
-
-  componentDidMount() {
-    this.getProduct();
-  }
-  getProduct = () => {
-    const url = "http://10.58.2.22:8000/product/detail?item=38";
-    fetch(url, {
-      method: "GET"
-    })
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          product: res.product[0]
-        });
-      })
-      .then(this.getIcecreamSize());
+  handleClick = e => {
+    alert("목록 페이지 만들어야 넘어갑니다.");
   };
-  getIcecreamSize() {
-    const url = "http://10.58.2.22:8000/product/size";
-    fetch(url, {
-      method: "GET"
-    })
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          sizes: res.sizes
-        });
-      });
-  }
+
+  //이전 다음 버튼 상태 처리를 위한 함수
+  filteredListIndexForMove = () => {
+    const { list, productName } = this.props;
+    const result = [];
+    if (list !== undefined) {
+      list.filter(
+        (item, i) => item.name === productName && result.push(i - 1, i, i + 1)
+      );
+    }
+    return result;
+  };
+
   render() {
+    const { navPrev, navNext, productName, list } = this.props;
     return (
-      // <Layout>
       <div className="menu-detail-container">
         <div className="content">
           <div className="inner-content">
-            <div className="view-wrap">
-              <ViewProduct product={this.state.product} />
-              <ViewPrice sizes={this.state.sizes} />
-              <ViewFlavor />
-            </div>
+            <div className="view-wrap">{this.props.children}</div>
             <div className="btn-menu-list">
-              <span>목록</span>
+              <span onClick={this.handleClick}>목록</span>
             </div>
           </div>
-          <PageMoveButton />
+          <PageMoveButton
+            navPrev={navPrev}
+            navNext={navNext}
+            productName={productName}
+            list={list}
+            filteredListIndexForMove={this.filteredListIndexForMove}
+          />
         </div>
       </div>
-      // </Layout>
     );
   }
 }

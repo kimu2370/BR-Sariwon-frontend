@@ -65,12 +65,16 @@
       height: 19px;
       margin-top: 30px;
 
-      a {
+      .bottom-link {
         padding-right: 31px;
         text-decoration: none;
         font-size: 14px;
         font-weight: 300;
         color: #2f231c;
+      }
+
+      .sign-up {
+        cursor: pointer;
       }
     }
   }
