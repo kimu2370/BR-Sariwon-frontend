@@ -8,10 +8,9 @@
     overflow: hidden;
     .header-benner {
       height: 310px;
-      margin-left: -145px;
       position: relative;
-      right: 12.5%;
-      width: inherit;
+      width: 100%;
+      object-fit: cover;
     }
   }
 

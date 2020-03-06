@@ -8,7 +8,10 @@ class IceCake extends Component {
     return (
       <>
         <ViewProduct product={product} menuID={product.menu} />
-        <ViewFlavor product={product} />
+        <ViewFlavor
+          product={product}
+          moveFlavorDetail={this.props.moveFlavorDetail}
+        />
       </>
     );
   }

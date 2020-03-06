@@ -86,6 +86,7 @@ class MenuDetailLayout extends Component {
   };
 
   moveFlavorDetail = name => {
+    //문자열 이름 오류 수정해야함.
     const flavor = this.state.list.filter(
       item => item.name === name && item.id
     )[0];
@@ -118,7 +119,7 @@ class MenuDetailLayout extends Component {
             moveFlavorDetail={this.moveFlavorDetail}
           />
         ) : product.menu === 2 ? (
-          <IceCake product={product} />
+          <IceCake product={product} moveFlavorDetail={this.moveFlavorDetail} />
         ) : product.menu === 3 ? (
           <Drink product={product} />
         ) : product.menu === 4 ? (
