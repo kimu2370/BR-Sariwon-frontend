@@ -19,7 +19,8 @@ class NavModal extends Component {
       searchCategory: "전체",
       searchProductName: "",
       searchAllergy: [],
-      searchTag: ""
+      searchTag: "",
+      isModalClicked: this.props.isModalClicked
     };
   }
 
@@ -97,12 +98,23 @@ class NavModal extends Component {
     })
       .then(response => response.json())
       .then(response => {
+        this.props.closeModal();
         console.log("search response: ", response);
-        this.props.history.push(
-          `/itemlist?type=6&${category}${name}${tag}${allergy}`
+        this.setState(
+          {
+            // 검색 조건
+            // searchCategory: "전체",
+            // searchProductName: "",
+            // searchAllergy: [],
+            searchTag: ""
+          },
+          () =>
+            this.props.history.push(
+              `/itemlist?type=6&${category}${name}${tag}${allergy}`
+            )
         );
-      })
-      .then(response => console.log("search response:: ", response));
+      });
+    // .then(response => console.log("search response:: ", response));
   };
 
   // 알러지 목록 추가
@@ -123,17 +135,17 @@ class NavModal extends Component {
   tagInputChanged = () => {};
 
   render() {
-    const {
-      searchCategory,
-      searchProductName,
-      searchAllergy,
-      searchTag
-    } = this.state;
+    // const {
+    //   searchCategory,
+    //   searchProductName,
+    //   searchAllergy,
+    //   searchTag
+    // } = this.state;
 
-    console.log("searchCategory: ", searchCategory);
-    console.log("searchProductName: ", searchProductName);
-    console.log("searchAllergy: ", searchAllergy);
-    console.log("searchTag: ", searchTag);
+    // console.log("searchCategory: ", searchCategory);
+    // console.log("searchProductName: ", searchProductName);
+    // console.log("searchAllergy: ", searchAllergy);
+    // console.log("searchTag: ", searchTag);
 
     return (
       <div

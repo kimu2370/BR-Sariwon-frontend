@@ -24,7 +24,10 @@ export default class Nav extends Component {
           isModalClicked={this.state.isModalClicked}
         />
         <NavBottom />
-        <NavModal isModalClicked={this.state.isModalClicked} />
+        <NavModal
+          isModalClicked={this.state.isModalClicked}
+          closeModal={this.searchProduct}
+        />
       </header>
     );
   }

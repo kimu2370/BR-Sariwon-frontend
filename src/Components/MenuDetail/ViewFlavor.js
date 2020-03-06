@@ -36,6 +36,7 @@ class ViewFlavor extends Component {
           <div className="list-flavor">
             <ul className="list-wrap">
               {product.flavors.map((item, i) => {
+                console.log(product.menu);
                 return (
                   <li
                     key={i}
