@@ -8,7 +8,8 @@ export class ItemList extends Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      initIndex: 0
     };
   }
   componentDidMount = () => {
@@ -33,25 +34,25 @@ export class ItemList extends Component {
       this.props.location.search.split("=")[1]
     ) {
       this.itemListFetch();
+      this.setState({
+        initIndex: this.props.location.search.split("=")[1] - 1
+      });
     }
   };
 
   render() {
+    const { initIndex } = this.state;
     const menuType = this.props.location.search.split("=")[1];
     // console.log(this.props.location.search);
     console.log(typeof menuType);
     return (
       <div className="item-list">
         <header className="header">
-          <img
-            className="header-benner"
-            src={IMG[menuType - 1].benner}
-            alt=""
-          />
+          <img className="header-benner" src={IMG[initIndex].benner} alt="" />
         </header>
         <div className="line-title">
           <span className="left-spoon" />
-          <img src={IMG[menuType - 1].title} alt="icecream" />
+          <img src={IMG[initIndex].title} alt="icecream" />
           <span className="right-spoon" />
         </div>
         {/* menu-list */}
