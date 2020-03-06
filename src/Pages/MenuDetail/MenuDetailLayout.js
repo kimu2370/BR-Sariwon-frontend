@@ -16,14 +16,19 @@ class MenuDetailLayout extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.getProductDetail();
-  }
+  };
 
-  //config url 과 window.location.search 사용하여 수정해야함.
+  componentDidUpdate = prevProps => {
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.getProductDetail();
+    }
+  };
 
   getProductDetail = () => {
-    const id = window.location.search.split("=")[1];
+    const id = this.props.location.search.split("=")[1];
+    // console.log(this.props.location.pathname.split("/"));
     const detailURL = `${URL}/product/menu/${id}`;
     fetch(detailURL, {
       method: "GET"
@@ -98,6 +103,7 @@ class MenuDetailLayout extends Component {
 
   render() {
     const { list, item: product } = this.state;
+    // console.log(this.props.location.pathname);
     return (
       <MenuDetail
         navPrev={this.navPrev}

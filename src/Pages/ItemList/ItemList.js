@@ -9,11 +9,39 @@ export class ItemList extends Component {
     super();
     this.state = {
       data: [],
-      initIndex: 0
+      count: 0,
+      initIndex: 0,
+      isSearch: false
     };
   }
   componentDidMount = () => {
-    this.itemListFetch();
+    const query = this.props.location.search.split("&");
+    const type = query[0].split("=")[1];
+    console.log("didmount type: ", type);
+    if (type === "6") {
+      console.log("1");
+      this.searchFetch(query);
+    } else {
+      console.log("2");
+      this.itemListFetch();
+    }
+  };
+
+  searchFetch = query => {
+    fetch(
+      `http://10.58.2.22:8000/product/product-search?${query
+        .join("&")
+        .slice(8)}`,
+      { method: "GET" }
+    )
+      .then(response => response.json())
+      .then(response =>
+        this.setState({
+          data: response.data,
+          count: response.count,
+          isSearch: true
+        })
+      );
   };
 
   itemListFetch = () => {
@@ -23,7 +51,12 @@ export class ItemList extends Component {
     })
       .then(response => response.json())
       .then(response =>
-        this.setState({ data: response.products, menuType: menuType })
+        this.setState({ data: response.products, menuType: menuType }, () =>
+          this.setState({
+            initIndex: this.props.location.search.split("=")[1] - 1,
+            isSearch: false
+          })
+        )
       );
     //   .then(response => console.log("fetch:", this.state.data));
   };
@@ -33,26 +66,43 @@ export class ItemList extends Component {
       prevProps.location.search.split("=")[1] !==
       this.props.location.search.split("=")[1]
     ) {
-      this.itemListFetch();
-      this.setState({
-        initIndex: this.props.location.search.split("=")[1] - 1
-      });
+      const query = this.props.location.search.split("&");
+      const type = query[0].split("=")[1];
+      console.log("didupdate type: ", type);
+      if (type === 6) {
+        this.searchFetch(query);
+      } else {
+        this.itemListFetch();
+      }
     }
   };
 
   render() {
     const { initIndex } = this.state;
-    const menuType = this.props.location.search.split("=")[1];
+    // const menuType = this.props.location.search.split("=")[1];
     // console.log(this.props.location.search);
-    console.log(typeof menuType);
+    console.log(this.state.data);
     return (
       <div className="item-list">
         <header className="header">
-          <img className="header-benner" src={IMG[initIndex].benner} alt="" />
+          {!this.state.isSearch && (
+            <img className="header-benner" src={IMG[initIndex].benner} alt="" />
+          )}
         </header>
+        {this.state.isSearch && (
+          <div className="line-title">{`검색결과 총 ${this.state.count}건 입니다.`}</div>
+        )}
         <div className="line-title">
           <span className="left-spoon" />
-          <img src={IMG[initIndex].title} alt="icecream" />
+          {!this.state.isSearch ? (
+            <img src={IMG[initIndex].title} alt="icecream" />
+          ) : (
+            <img
+              className="header-benner"
+              src="http://www.baskinrobbins.co.kr/assets/images/search/h_search_result.png"
+              alt=""
+            />
+          )}
           <span className="right-spoon" />
         </div>
         {/* menu-list */}

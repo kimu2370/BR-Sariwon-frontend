@@ -5,11 +5,10 @@ import "./itemBox.scss";
 class ItemBox extends Component {
   handleItem = () => {
     const productID = this.props.id;
-    this.props.history.push(`/menu/detail/${productID}`);
+    this.props.history.push(`/menu/detail?id=${productID}`);
   };
 
   render() {
-    console.log(this.props.tags1);
     return (
       <div className="ItemBox">
         <li className="item-box">
