@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "Components/FindStore/store.scss";
-import Layout from "Pages/Layout/Layout";
+// import Layout from "Pages/Layout/Layout";
 
 /*
  * 매장 찾기 목록 아이템

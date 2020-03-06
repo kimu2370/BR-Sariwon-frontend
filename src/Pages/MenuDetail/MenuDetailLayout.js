@@ -5,6 +5,7 @@ import IceCake from "./IceCake";
 import Drink from "./Drink";
 import Coffee from "./Coffee";
 import Dessert from "./Dessert";
+import { URL } from "config";
 class MenuDetailLayout extends Component {
   constructor() {
     super();
@@ -16,14 +17,32 @@ class MenuDetailLayout extends Component {
   }
 
   componentDidMount() {
-    this.getProducts();
     this.getProductDetail();
   }
 
   //config url 과 window.location.search 사용하여 수정해야함.
 
+  getProductDetail = () => {
+    const id = window.location.search.split("=")[1];
+    const url = `${URL}/product/menu/40`; //${id};
+    fetch(url, {
+      method: "GET"
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.setState(
+          {
+            item: res.product[0]
+          },
+          () => {
+            this.getProducts();
+          }
+        );
+      });
+  };
+
   getProducts = () => {
-    const url = "http://10.58.2.22:8000/product/menu?type=2";
+    const url = `${URL}/product/menu?type=${this.state.item.menu}`;
     fetch(url, {
       method: "GET"
     })
@@ -35,22 +54,8 @@ class MenuDetailLayout extends Component {
       });
   };
 
-  getProductDetail = () => {
-    // console.log(this.props.location.pathname);
-    const url = "http://10.58.2.22:8000/product/menu/40";
-    fetch(url, {
-      method: "GET"
-    })
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          item: res.product[0]
-        });
-      });
-  };
-
   navPrev = id => {
-    const url = `http://10.58.2.22:8000/product/menu/${id}`;
+    const url = `${URL}/product/menu/${id}`;
     fetch(url, {
       method: "GET"
     })
@@ -63,7 +68,7 @@ class MenuDetailLayout extends Component {
   };
 
   navNext = id => {
-    const url = `http://10.58.2.22:8000/product/menu/${id}`;
+    const url = `${URL}/product/menu/${id}`;
     fetch(url, {
       method: "GET"
     })

@@ -55,7 +55,7 @@ class PageMoveButton extends Component {
                         src={
                           typeof indexArray === "object" &&
                           indexArray.length > 0 &&
-                          list[indexArray[0]].image
+                          list[indexArray[0]].thumbnail
                         }
                         alt=""
                       ></img>
@@ -84,7 +84,7 @@ class PageMoveButton extends Component {
                         src={
                           typeof indexArray === "object" &&
                           indexArray.length > 0 &&
-                          list[indexArray[2]].image
+                          list[indexArray[2]].thumbnail
                         }
                         alt=""
                       ></img>

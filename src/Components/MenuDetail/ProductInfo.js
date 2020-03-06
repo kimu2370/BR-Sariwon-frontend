@@ -15,7 +15,7 @@ class ProductInfo extends Component {
               <span className="option">{product.release_date}</span>
             </>
           ) : product.menu === 2 ? (
-            <div className="wrap">
+            <div className="proudct-wrap">
               <span className="text">아이스크림</span>
               <span className="option">
                 {product.flavors.map(item => item.name).join(", ")}
