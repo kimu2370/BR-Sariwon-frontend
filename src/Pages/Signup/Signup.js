@@ -167,7 +167,7 @@ class Signup extends Component {
   };
 
   handleFetch = () => {
-    fetch("http://10.58.2.22:8000/account/sign-up", {
+    fetch(`${URL}/account/sign-up`, {
       method: "POST",
       body: JSON.stringify({
         name: this.state.name,

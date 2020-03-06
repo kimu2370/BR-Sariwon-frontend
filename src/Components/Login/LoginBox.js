@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { URL } from "config";
 import "./loginBox.scss";
 
 class LoginBox extends Component {
@@ -44,7 +45,7 @@ class LoginBox extends Component {
   };
 
   loginFetch = () => {
-    fetch("http://10.58.2.22:8000/account/sign-in", {
+    fetch(`${URL}/account/sign-in`, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.id,

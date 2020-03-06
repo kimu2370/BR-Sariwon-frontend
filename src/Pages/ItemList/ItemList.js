@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import ItemBox from "Components/ItemList/ItemBox";
 import IMG from "Components/ItemList/Data/Data";
+import { URL } from "config";
 import "./itemList.scss";
 
 export class ItemList extends Component {
@@ -27,12 +28,9 @@ export class ItemList extends Component {
 
   searchFetch = query => {
     this.setState({ data: [] }, () =>
-      fetch(
-        `http://10.58.2.22:8000/product/product-search?${query
-          .join("&")
-          .slice(8)}`,
-        { method: "GET" }
-      )
+      fetch(`${URL}/product/product-search?${query.join("&").slice(8)}`, {
+        method: "GET"
+      })
         .then(response => response.json())
         .then(response =>
           this.setState({
@@ -46,7 +44,7 @@ export class ItemList extends Component {
 
   itemListFetch = () => {
     const menuType = this.props.location.search.split("=")[1];
-    fetch(`http://10.58.2.22:8000/product/menu?type=${menuType}`, {
+    fetch(`${URL}/product/menu?type=${menuType}`, {
       method: "GET"
     })
       .then(response => response.json())
