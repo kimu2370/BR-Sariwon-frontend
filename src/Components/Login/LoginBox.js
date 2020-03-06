@@ -39,6 +39,10 @@ class LoginBox extends Component {
     }
   };
 
+  handleSignup = () => {
+    this.props.history.push("/signup");
+  };
+
   loginFetch = () => {
     fetch("http://10.58.2.22:8000/account/sign-in", {
       method: "POST",
@@ -88,22 +92,22 @@ class LoginBox extends Component {
         </div>
         <div className="left-bottom">
           <a
-            className="find-id"
+            className="bottom-link"
             href="http://members.happypointcard.com/member/member_inquiry.html?url_check=BR"
             target="blank"
           >
             아이디찾기
           </a>
           <a
-            className="find-pw"
+            className="bottom-link"
             href="https://members.happypointcard.com/member_02/join_05.html"
             target="blank"
           >
             비밀번호재발급
           </a>
-          <a className="sing-up" href="/signup" target="blank">
+          <span className="sign-up bottom-link" onClick={this.handleSignup}>
             회원가입
-          </a>
+          </span>
         </div>
       </div>
     );
