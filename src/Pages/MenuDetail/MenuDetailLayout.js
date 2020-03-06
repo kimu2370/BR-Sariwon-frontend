@@ -85,13 +85,8 @@ class MenuDetailLayout extends Component {
       });
   };
 
-  moveFlavorDetail = name => {
-    //문자열 이름 오류 수정해야함.
-    console.log(name);
-    const flavor = this.state.list.filter(
-      item => item.name === name && item.id
-    )[0];
-    const detailURL = `${URL}/product/menu/${flavor.id}`;
+  moveFlavorDetail = id => {
+    const detailURL = `${URL}/product/menu/${id}`;
     fetch(detailURL, {
       method: "GET"
     })
@@ -119,7 +114,7 @@ class MenuDetailLayout extends Component {
             product={product}
             moveFlavorDetail={this.moveFlavorDetail}
           />
-        ) : product.menu === 2 ? (
+        ) : product && product.menu === 2 ? (
           <IceCake product={product} moveFlavorDetail={this.moveFlavorDetail} />
         ) : product.menu === 3 ? (
           <Drink product={product} />
