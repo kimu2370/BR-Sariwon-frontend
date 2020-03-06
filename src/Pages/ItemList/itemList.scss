@@ -2,14 +2,16 @@
   height: 100vh;
 
   .header {
+    max-width: 1920px;
     min-width: 1200px;
     margin: 0 auto;
+    overflow: hidden;
     .header-benner {
       height: 310px;
+      margin-left: -145px;
       position: relative;
       right: 12.5%;
-      //   background: url(http://www.baskinrobbins.co.kr/asset/images/menu/bg_icecream_menu.gif);
-      //   background-position: 50% 0;
+      width: inherit;
     }
   }
 
