@@ -87,6 +87,7 @@ class MenuDetailLayout extends Component {
 
   moveFlavorDetail = name => {
     //문자열 이름 오류 수정해야함.
+    console.log(name);
     const flavor = this.state.list.filter(
       item => item.name === name && item.id
     )[0];

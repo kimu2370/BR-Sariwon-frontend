@@ -44,10 +44,7 @@ export default class StoreSearch extends Component {
       });
       // 도/시 선택 후 구/군 리스트 목록 저장하기
       let cityId = id ? `city=${id}` : "";
-      this.selectList(
-        `http://10.58.2.22:8000/store/districts?${cityId}`,
-        "district"
-      );
+      this.selectList(`${URL}/store/districts?${cityId}`, "district");
     } else if (type === "district") {
       // 선택 된 구/군 id
       this.setState({ selectedDistrict: id, selectedDistrictName: name });
