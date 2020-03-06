@@ -63,9 +63,9 @@ export class ItemList extends Component {
                   id={item.id}
                   name={item.name}
                   thumbnail={item.thumbnail}
-                  tags1={item.tags[0].name}
-                  tags2={item.tags[1].name}
-                  //   tags1={item.tags.slice(0, 1)}
+                  //   tags1={item.tags.length >= 1 && item.tags[0].name}
+                  //   tags2={item.tags.length >= 2 && item.tags[1].name}
+                  tags={item.tags.map((el, i) => i < 2 && el.name)}
                 />
               );
             })}

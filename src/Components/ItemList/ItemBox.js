@@ -9,6 +9,7 @@ class ItemBox extends Component {
   };
 
   render() {
+    console.log(this.props.tags1);
     return (
       <div className="ItemBox">
         <li className="item-box">
@@ -23,10 +24,7 @@ class ItemBox extends Component {
           <div className="item-middle">
             <div className="hashtag">
               <a href="http://www.baskinrobbins.co.kr/search/result.php?ScHashtag=%23%EB%A1%9C%ED%88%AC%EC%8A%A4%EB%B9%84%EC%8A%A4%EC%BD%94%ED%94%84%EC%95%84%EC%9D%B4%EC%8A%A4%ED%81%AC%EB%A6%BC">
-                {this.props.tags1}
-              </a>
-              <a href="http://www.baskinrobbins.co.kr/search/result.php?ScHashtag=%23%EB%B0%94%EB%8B%90%EB%9D%BC%EC%95%84%EC%9D%B4%EC%8A%A4%ED%81%AC%EB%A6%BC">
-                {this.props.tags2}
+                {this.props.tags}
               </a>
             </div>
             <div className="buy-button">
