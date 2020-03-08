@@ -32,7 +32,7 @@ class Flavor extends Component {
     }
   }
 
-  changeIceCreamName = inputArg => {
+  handleMoveIceCream = inputArg => {
     if (!inputArg) {
       //move-icecream down
       this.setState({ moveIceCream: "move-icecream down" });
@@ -61,7 +61,7 @@ class Flavor extends Component {
           <Nav
             section={section}
             moveIceCream={moveIceCream}
-            onChange={this.changeIceCreamName}
+            onChange={this.handleMoveIceCream}
           />
           <section ref={this.section1} className="section area1">
             <div className="in-wrap">
