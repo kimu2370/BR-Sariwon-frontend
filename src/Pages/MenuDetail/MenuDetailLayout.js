@@ -47,7 +47,8 @@ class MenuDetailLayout extends Component {
   };
 
   getProducts = () => {
-    const listURL = `${URL}/product/menu?type=${this.state.item.menu}`;
+    const menuType = this.state.item.menu;
+    const listURL = `${URL}/product/menu?type=${menuType}`;
     fetch(listURL, {
       method: "GET"
     })
