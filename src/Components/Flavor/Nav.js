@@ -4,6 +4,7 @@ import "Components/Flavor/nav.scss";
 import NavImgSrc from "Components/Flavor/NavData";
 class Nav extends Component {
   render() {
+    // console.log(this.props.section);
     return (
       <nav className="flavor-nav">
         <div className="move-bar">

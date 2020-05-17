@@ -31,6 +31,7 @@ class PageMoveButton extends Component {
         indexArray[1] = 다음 페이지 인덱스 
     */
 
+    // 스크롤 한만큼 top 값 변화.
     return (
       <div
         className="page-move-btn"

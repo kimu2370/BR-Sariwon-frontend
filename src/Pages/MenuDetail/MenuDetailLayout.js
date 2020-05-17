@@ -109,6 +109,7 @@ class MenuDetailLayout extends Component {
         productName={product.name}
         list={list}
         productID={product.id}
+        productMenu={product.menu}
       >
         {product && product.menu === 1 ? (
           <Icecream
