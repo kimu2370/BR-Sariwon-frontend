@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import PageMoveButton from "Components/MenuDetail/PageMoveButton";
 import "Pages/MenuDetail/menuDetail.scss";
+
 class MenuDetail extends Component {
-  handleClick = e => {
-    alert("목록 페이지 만들어야 넘어갑니다.");
+  handleClick = () => {
+    this.props.history.push(`/itemlist?type=${this.props.productMenu}`);
   };
 
   //이전 다음 버튼 상태 처리를 위한 함수
@@ -42,4 +44,4 @@ class MenuDetail extends Component {
   }
 }
 
-export default MenuDetail;
+export default withRouter(MenuDetail);

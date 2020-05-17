@@ -5,7 +5,7 @@ import IMG from "Components/ItemList/Data/Data";
 import { URL } from "config";
 import "./itemList.scss";
 
-export class ItemList extends Component {
+class ItemList extends Component {
   constructor() {
     super();
     this.state = {
@@ -76,7 +76,8 @@ export class ItemList extends Component {
     const { initIndex } = this.state;
     // const menuType = this.props.location.search.split("=")[1];
     // console.log(this.props.location.search);
-    console.log(this.state.data);
+    // console.log(this.state.data);
+    console.log(this.props);
     return (
       <div className="item-list">
         <header className="header">
@@ -113,8 +114,6 @@ export class ItemList extends Component {
                   id={item.id}
                   name={item.name}
                   thumbnail={item.thumbnail}
-                  //   tags1={item.tags.length >= 1 && item.tags[0].name}
-                  //   tags2={item.tags.length >= 2 && item.tags[1].name}
                   tags={item.tags.map((el, i) => i < 2 && el.name)}
                 />
               );
